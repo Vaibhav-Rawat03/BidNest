@@ -70,7 +70,7 @@ button:hover {
     background-color: #1f68a6;
 }
 
-.buttons {
+.link {
     margin-top: 20px;
     display: flex;
     flex-direction: column;

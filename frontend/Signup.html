@@ -8,15 +8,57 @@
             <img src="./util/user-Icon.png">
             <h1> Sign Up Now</h1>
             <form>
-                <input type="name"class="input-box" placeholder="Your Name">
-                <input type="email"class="input-box" placeholder="Your Email">
-                <input type="password"class="input-box" placeholder="Your Password">
-                <p><span><input type="checkbox"></span> I agree to the terms of services</p>
-                <button type="button" class="signup-btn">Sign up</button>
+                <input id="Name" type="name"class="input-box" placeholder="Your Name">
+                <input id="Email" type="email"class="input-box" placeholder="Your Email">
+                <input id="Password" type="password"class="input-box" placeholder="Your Password">
+                <p><span><input id="check" type="checkbox"></span> I agree to the terms of services</p>
+                <button id="signup" type="button" class="signup-btn">Sign up</button>
                 <hr>
                 <p class="or">OR</p>
-                <button type="button" class="login-btn">Login</button>
+                <!-- <button id="login" type="button" class="login-btn">Login</button> -->
+                <a href="/">Already have an account?<br>Signin</a>
             </form>
         </div>
     </body>
+
+    <script>
+        
+        function submitform(){
+            let name=document.getElementById("Name").value
+            let email=document.getElementById("Email").value
+            let password=document.getElementById("Password").value
+            let agree=document.getElementById("check").checked
+
+        if(name == " " || email == " " || password == " " ||  !agree){
+            alert("Itni jaldi kya h bhayy")
+            return
+        }
+        else{
+            const data={
+                name:name,
+                email:email,
+                password:password,
+                agree:agree
+            };
+        
+            fetch('/submit', {
+                method:'POST',
+                headers:{
+                    'Content-Type': 'application/json'
+                },
+                'body':JSON.stringify(data)    
+            }).then(response => response.text()).then(result=>console.log(result))
+        }
+    }
+
+    // function Login(){
+    //     fetch('/' ,{
+    //         method:'GET'
+    //     })
+    // }
+       
+      document.getElementById('signup').addEventListener('click', submitform)
+
+    //   document.getElementById('login').addEventListener('click', Login )
+    </script>
 </html>

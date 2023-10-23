@@ -13,21 +13,53 @@
             <div class="Login">
                 <h2>Enter your Credentials</h2>
                 <form>
-                    <label for="username">Username:</label>
-                    <input type="text" id="username" name="username" placeholder="Your username">
+                    <label for="email">Email:</label>
+                    <input type="text" id="email" name="email" placeholder="Your Email">
 
                     <label for="password">Password:</label>
                     <input type="password" id="password" name="password" placeholder="Your password">
 
-                    <button type="submit">Log In as Buyer</button>
+                    <button id='loginb' class="login" type="button">Log In as Buyer</button>
                     <br>
-                    <button type="submit">Log In as Seller</button>
+                    <button id='logins' class="login" type="button">Log In as Seller</button>
                 </form>
-                <div class="buttons">
+                <!-- <div class="buttons">
                     <button class="new-user">Create New User</button>
+                </div> -->
+                <div class="link">
+                <a href="/signup" style="color:whitesmoke">SignUp</a>
                 </div>
             </div>
         </div>
     </div>
-</body>
+
+  <script>
+    function authenticate(){
+        const email =document.getElementById('email').value
+        const password =document.getElementById('password').value
+        
+        if(email == "" || password == ""){
+            alert('Hacker bhay Hacker')
+            return
+        }
+        else{
+            const secure={
+                email:email,
+                password:password
+            }
+
+            fetch('/authenticate', {
+                method:'POST',
+                headers:{
+                    'Content-Type':'application/json'
+                },
+                body:JSON.stringify(secure)
+            }).then(response=>response.json()).then(result=>console.log(result))
+        }
+    }
+
+    document.getElementById('loginb').addEventListener('click' , authenticate)
+    document.getElementById('logins').addEventListener('click' , authenticate)
+  </script>
+  </body>
 </html>
