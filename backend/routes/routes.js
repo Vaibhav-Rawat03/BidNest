@@ -7,12 +7,28 @@ const router=express.Router()
 const __filename=fileURLToPath(import.meta.url)
 const __dirname=path.dirname(__filename)
 
+app.use(express.json())
+
 router.get('/',(req,res)=>{
+    const login=req.
     res.sendFile(path.join(__dirname,'../../frontend/Signin.html'))
 })
 
 router.get('/signup',(req,res)=>{
     res.sendFile(path.join(__dirname,'../../frontend/Signup.html'))
+})
+
+router.post('/submit', (req,res) =>{
+    const userData=req.body
+    console.log(userData)
+    // console.log(userData.Name)
+    res.send('Data received')
+})
+
+router.post('/authenticate', (req,res) =>{
+    const authenticate=req.body
+    console.log(authenticate)
+    res.send('Login Successful')
 })
 
 app.listen(4040,()=>{
