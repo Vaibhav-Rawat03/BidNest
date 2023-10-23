@@ -22,7 +22,7 @@ router.get('/about',(req,res) =>{
 })
 
 router.get('/homebuyer',(req,res) =>{
-    res.sendFile(path.join(__dirname,`../../frontend/homepage(buyer's).html`))
+    res.sendFile(path.join(__dirname,`../../frontend/homepagebuyers.html`))
 })
 
 router.post('/submit', (req,res) =>{

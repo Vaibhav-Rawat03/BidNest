@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="./util/BuyerhomestyeL.css">
+</head>
+<body>
+    <header>
+        <img src="./util/bidNest.png" alt="Logo" class="logo">
+        <div class="bitnest-text">BidNest</div>
+        <a href="#">Home</a>
+        <a href="#">About Us</a>
+    </header>
+
+    <div class="container">
+        <h1>Welcome to Our Website</h1>
+        <form>
+            <input id="search-bar" type="text" placeholder="Search...">
+            <input id="search-button" type="submit" value="Search">
+        </form>
+    </div>
+
+    <script>
+       function search(){
+        event.preventDefault()
+            let s=document.getElementById('search-bar').value
+            // console.log("works")
+
+    fetch(`/search?q=${encodeURIComponent(s)}` , {
+                method:"GET",
+                headers:{
+                    'Content-Type':'application/json'
+                }
+            }).then(response => response.text()).then(result => console.log(result))
+       }
+
+       document.getElementById('search-button').addEventListener('click',search)
+
+    </script>
+</body>
+</html>
