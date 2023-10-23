@@ -17,6 +17,14 @@ router.get('/signup',(req,res)=>{
     res.sendFile(path.join(__dirname,'../../frontend/Signup.html'))
 })
 
+router.get('/about',(req,res) =>{
+    res.sendFile(path.join(__dirname,'../../frontend/'))
+})
+
+router.get('/homebuyer',(req,res) =>{
+    res.sendFile(path.join(__dirname,`../../frontend/homepage(buyer's).html`))
+})
+
 router.post('/submit', (req,res) =>{
     const userData=req.body
     console.log(userData)
@@ -28,6 +36,12 @@ router.post('/authenticate', (req,res) =>{
     const authenticate=req.body
     console.log(authenticate)
     res.send('Login Successful')
+})
+
+router.get('/search', (req,res) =>{
+    const search=decodeURIComponent(req.query.q)
+    console.log(search)
+    res.send("Looks good")
 })
 
 app.listen(4040,()=>{
