@@ -10,7 +10,6 @@ const __dirname=path.dirname(__filename)
 app.use(express.json())
 
 router.get('/',(req,res)=>{
-    const login=req.
     res.sendFile(path.join(__dirname,'../../frontend/Signin.html'))
 })
 
