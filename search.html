@@ -10,7 +10,7 @@
 <body>
 	<div class="Search">
 		<h2 class="header">What are you looking for?</h2>
-		<input type="text" name="search" id="search" class="form-control" placeholder="Search here">
+		<input type="text" name="search" id="search-box" class="form-control" placeholder="Search here">
 		<button type="button" class="rounded-btn">Filter</button>
 	</div>
 	<div class="row row-cols-4 row-cols-md-3 g-4">
@@ -83,7 +83,24 @@
 			</div>
 		</div>
 	</div>
-	
+	<script>
+		function search(){
+		 event.preventDefault()
+			 let s=document.getElementById('search-box').value
+			 // console.log("works")
+			 
+			 fetch('/searchpagesearch' , {
+				 method:"GET",
+				 headers:{
+					 'Content-Type':'application/json'
+				 },
+				 'body':JSON.stringify(s),
+			 }).then(response => response.text()).then(result => console.log(result))
+		}
+ 
+		document.getElementById('rounded-btn').addEventListener('click',search)
+ 
+	 </script>
 </body>
 
 </html>
