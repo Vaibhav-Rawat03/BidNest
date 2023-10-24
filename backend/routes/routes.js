@@ -33,6 +33,12 @@ router.get('/Sell',(req,res) =>{
     res.sendFile(path.join(__dirname,'../../frontend/Sellerlandingpage.html'))
 })
 
+router.post('/selldata', (req,res) =>{   //need to update
+    const selldata=req.body
+    console.log(selldata)
+    res.send('Data received')
+})
+
 router.post('/submit', (req,res) =>{
     const userData=req.body
     console.log(userData)
