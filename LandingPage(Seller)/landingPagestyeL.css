@@ -1,0 +1,140 @@
+body, h1, h2, p, label, input, textarea {
+    margin: 0;
+    padding: 0;
+}
+
+
+body {
+    background-color: #f4f4f4;
+    font-family: Arial, sans-serif;
+    background-image: url('backgroundImage.jpg'); 
+            background-size: 100%;
+            background-repeat: no-repeat; 
+            background-attachment: fixed; 
+            background-position: 90% center; 
+            background-position: center bottom 15%;
+            margin: 0;
+            padding: 0;
+}
+
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 24px;
+}
+
+.about-button {
+    position: absolute;
+    top: 20px;
+    right: 120px;
+    text-decoration: none;
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.about-button + .products-button {
+    margin-left: 630px;
+}
+
+.products-button:last-child {
+    position: absolute;
+    top: 46px;
+    margin-right: 200;
+    margin-top: -26px;
+    /* Adjust as needed */
+    text-decoration: none;
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 1px;
+    font-size: 16px;
+    font-weight: normal;
+}
+
+.upload-form {
+    max-width: 600px;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.upload-form label {
+    display: block;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.upload-form input[type="file"],
+.upload-form input[type="datetime-local"],
+.upload-form input[type="number"],
+.upload-form input[type="text"],
+.upload-form textarea {
+    display: block;
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.upload-button {
+    display: inline-block;
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    text-decoration: none;
+}
+.image-preview {
+    margin-top: 10px;
+}
+
+
+.preview-image {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin: 5px 0;
+    max-height: 200px;
+}
+.logo {
+    position: absolute;
+    top: 9px;
+    left: 15px;
+    width: 60px; 
+    height: auto;
+}
+.bitnest-text {
+    position: absolute;
+    top: 30px;
+    right: 1325px;
+    color: #c5c517;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+footer {
+    text-align: center;
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+}
