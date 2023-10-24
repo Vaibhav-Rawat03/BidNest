@@ -29,6 +29,10 @@ router.get('/about',(req,res) =>{
     res.sendFile(path.join(__dirname,'../../frontend/About.html'))
 })
 
+router.get('/Sell',(req,res) =>{
+    res.sendFile(path.join(__dirname,'../../frontend/Sellerlandingpage.html'))
+})
+
 router.post('/submit', (req,res) =>{
     const userData=req.body
     console.log(userData)

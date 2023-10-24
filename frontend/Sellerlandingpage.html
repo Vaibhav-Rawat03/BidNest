@@ -16,7 +16,8 @@
     </header>
 
     <section class="upload-form">
-        <form action="upload.php" method="post" enctype="multipart/form-data">
+        <!-- <form action="upload.php" method="post" enctype="multipart/form-data"> -->
+            <form method="post" enctype="multipart/form-data"></form>
             <label for="product-images">Select Product Images:</label>
             <input type="file" id="product-images" name="product-images" accept="image/*" multiple>
             
@@ -36,11 +37,29 @@
             
            
 
-            <button type="submit" class="upload-button">Upload</button>
+            <button id="upload" type="submit" class="upload-button">Upload</button>
         </form>
     </section>
 
     <!-- <script src="./util/script.js"></script> -->
+    <script>
+        function upload(){
+            const image=document.getElementById('product-images').value
+            const name=document.getElementById('product-name').value
+            const description=document.getElementById('description').value
+            const time=document.getElementById('bidding-end-time').value
+            const price=document.getElementById('base-price').value
+
+            if(image ==="" || name ==="" || description ==="" || time ==="" || price ===""){
+                alert("Please fill all the details")
+            }
+            else{
+                console.log("Received")  //this will be replaced
+            }
+        }
+
+         document.getElementById('upload').addEventListener("click", upload)
+    </script>
 
  
 </body>
