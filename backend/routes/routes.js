@@ -1,11 +1,14 @@
 import express from 'express'
 import path from 'path'
 import {fileURLToPath} from 'url'
+import multer from 'multer'
 
 const app=express()
 const router=express.Router()
 const __filename=fileURLToPath(import.meta.url)
 const __dirname=path.dirname(__filename)
+const storage=multer.memoryStorage()     //creates in memory storage engine
+const upload = multer({ storage: storage })
 
 app.use(express.json())
 
@@ -33,9 +36,11 @@ router.get('/Sell',(req,res) =>{
     res.sendFile(path.join(__dirname,'../../frontend/Sellerlandingpage.html'))
 })
 
-router.post('/selldata', (req,res) =>{   //need to update
+router.post('/selldata', upload.single('image') , (req,res) =>{   //need to update
     const selldata=req.body
-    console.log(selldata)
+    const image=req.file.buffer
+    console.log(image)
+    // console.log(selldata)
     res.send('Data received')
 })
 

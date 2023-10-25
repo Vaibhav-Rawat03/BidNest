@@ -19,7 +19,7 @@
         <!-- <form action="upload.php" method="post" enctype="multipart/form-data"> -->
             <form method="post" enctype="multipart/form-data"></form>
             <label for="product-images">Select Product Images:</label>
-            <input type="file" id="product-images" name="product-images" accept="image/*" multiple>
+            <input type="file" id="product-images" name="image" accept="image/*" multiple>
             
             <div id="image-preview" class="image-preview"></div>
             
@@ -44,17 +44,33 @@
     <!-- <script src="./util/script.js"></script> -->
     <script>
         function upload(){
-            const image=document.getElementById('product-images').value
+            const image=document.getElementById('product-images').files[0]
             const name=document.getElementById('product-name').value
             const description=document.getElementById('description').value
             const time=document.getElementById('bidding-end-time').value
             const price=document.getElementById('base-price').value
 
-            if(image ==="" || name ==="" || description ==="" || time ==="" || price ===""){
+            if(!image || name ==="" || description ==="" || time ==="" || price ===""){
                 alert("Please fill all the details")
             }
             else{
                 console.log("Received")  //this will be replaced
+
+                const data={
+                    image:image,
+                    name:name,
+                    description:description,
+                    time:time,
+                    price:price
+                }
+
+                fetch('/selldata',{    //maybe needs to be altered
+                    method:"POST",
+                    headers:{
+                        "Content-Type":"application/json"
+                    },
+                    body:JSON.stringify(data)
+                }).then(response =>response.text()).then(result =>console.log(result))
             }
         }
 
