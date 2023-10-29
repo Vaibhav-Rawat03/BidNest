@@ -34,10 +34,10 @@
     </div>
 
   <script>
-    function authenticate(){
+    function authenticateseller(){
         const email =document.getElementById('email').value
         const password =document.getElementById('password').value
-        
+
         if(email == "" || password == ""){
             alert('Hacker bhay Hacker')
             return
@@ -45,21 +45,63 @@
         else{
             const secure={
                 email:email,
-                password:password
+                password:password,
             }
 
-            fetch('/authenticate', {
+            fetch('/authenticateseller', {
                 method:'POST',
                 headers:{
                     'Content-Type':'application/json'
                 },
                 body:JSON.stringify(secure)
-            }).then(response=>response.json()).then(result=>console.log(result))
+            }).then(response =>{
+                if(response.status == 200){
+                window.location.href='/sell'
+            }
+            else{
+                response=>response.text()
+                alert("Wrong E-mail and/or password")
+                console.log("Wrong")
+            }
+        }).then(result=>console.log(result))
         }
     }
 
-    document.getElementById('loginb').addEventListener('click' , authenticate)
-    document.getElementById('logins').addEventListener('click' , authenticate)
+    function authenticatebuyer(){
+        const email =document.getElementById('email').value
+        const password =document.getElementById('password').value
+
+        if(email == "" || password == ""){
+            alert('Hacker bhay Hacker')
+            return
+        }
+        else{
+            const secure={
+                email:email,
+                password:password,
+            }
+
+            fetch('/authenticateseller', {
+                method:'POST',
+                headers:{
+                    'Content-Type':'application/json'
+                },
+                body:JSON.stringify(secure)
+            }).then(response =>{
+                if(response.status == 200){
+                window.location.href='/homebuyer'
+            }
+            else{
+                response=>response.text()
+                alert("Wrong E-mail and/or password")
+                
+            }
+        }).then(result=>console.log(result))
+        }
+    }
+
+    document.getElementById('loginb').addEventListener('click' , authenticatebuyer)
+    document.getElementById('logins').addEventListener('click' , authenticateseller)
   </script>
   </body>
 </html>

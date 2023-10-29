@@ -38,7 +38,6 @@
                 name:name,
                 email:email,
                 password:password,
-                agree:agree
             };
         
             fetch('/submit', {
@@ -47,18 +46,13 @@
                     'Content-Type': 'application/json'
                 },
                 'body':JSON.stringify(data)    
-            }).then(response => response.text()).then(result=>console.log(result))
+            }).then(response =>{
+                 response.text(),
+                 alert("User has been registered")
+            }).then(result=>console.log(result))
         }
     }
 
-    // function Login(){
-    //     fetch('/' ,{
-    //         method:'GET'
-    //     })
-    // }
-       
       document.getElementById('signup').addEventListener('click', submitform)
-
-    //   document.getElementById('login').addEventListener('click', Login )
     </script>
 </html>
