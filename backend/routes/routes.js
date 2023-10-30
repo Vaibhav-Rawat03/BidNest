@@ -8,45 +8,56 @@ import bcrypt from 'bcrypt'
 
 const app=express()
 const router=express.Router()
+
+const storage=multer.diskStorage({
+    destination:(req,file,cb)=>{
+        return cb(null , "./sellerdata")
+    },
+    
+    filename:(req,file,cb)=>{
+        return cb(null , `${Date.now()}-${file.originalname}`)
+    }
+
+})
+const upload=multer({storage:storage})
 const __filename=fileURLToPath(import.meta.url)
 const __dirname=path.dirname(__filename)
-const storage=multer.memoryStorage()     //creates in memory storage engine
-const upload = multer({ storage: storage })
+app.use(express.urlencoded({extended:false}))
 
 
 mongoose.connect("mongodb://127.0.0.1:27017/Minordb" ).then(() =>{console.log("connected to database successfully")}).catch((error)=> {console.log("error in connecting to database" , error)})
 
 app.use(express.json())
 
-router.get('/',(req,res)=>{
+router.get('/',(req,res)=>{                                                           //loginpage
     res.sendFile(path.join(__dirname,'../../frontend/Signin.html'))
 })
 
-router.get('/signup',(req,res)=>{
+router.get('/signup',(req,res)=>{                                                     //signuppage
     res.sendFile(path.join(__dirname,'../../frontend/Signup.html'))
 })
 
-router.get('/homebuyer',(req,res) =>{
+router.get('/homebuyer',(req,res) =>{                                                 //homepage of buyer
     res.sendFile(path.join(__dirname,`../../frontend/homepagebuyers.html`))
 })
 
-router.get('/about',(req,res) =>{
+router.get('/about',(req,res) =>{                                                     //aboutpage
     res.sendFile(path.join(__dirname,'../../frontend/About.html'))
 })
-
-router.get('/sell',(req,res) =>{
+ 
+router.get('/sell',(req,res) =>{                                                      //homepage of seller
     res.sendFile(path.join(__dirname,'../../frontend/Sellerlandingpage.html'))
 })
 
-router.post('/selldata', upload.single('image') , (req,res) =>{   //need to update
-    const selldata=req.body
-    const image=req.file.buffer  //encrption tyrp=
-    console.log(image)
-    // console.log(selldata)
-    res.send('Data received')
+router.post('/selldata', upload.single('image'), (req,res) =>{                        //fetch req from seller
+  
+  console.log(req.file)
+  console.log(req.body)
+
+  return res.status(200).send("Successfully got the data")
 })
 
-router.post('/submit', async(req,res) =>{
+router.post('/submit', async(req,res) =>{                                             //fetch of signup page
     const userData=req.body
     console.log(userData)
     const verifyemail=userData.email
@@ -70,7 +81,7 @@ router.post('/submit', async(req,res) =>{
     res.send('Data received and user registered')
 })
 
-router.post('/authenticatebuyer', async(req,res) =>{
+router.post('/authenticatebuyer', async(req,res) =>{                                //fetch of signin page
     const authenticate=req.body
     // console.log(authenticate)
 
@@ -91,7 +102,7 @@ router.post('/authenticatebuyer', async(req,res) =>{
    if(verify_password === verify_email.password){
     // res.status=200
     res.status(200).send('Successful Buyer')
-    return
+    return  
    }
    else{
     console.log("Wrong e-mail or password")
@@ -101,7 +112,7 @@ router.post('/authenticatebuyer', async(req,res) =>{
 }
 })
 
-router.post('/authenticateseller', async(req,res) =>{
+router.post('/authenticateseller', async(req,res) =>{                                      //fetch of signin page
     const authenticate=req.body
     // console.log(authenticate)
     
@@ -122,7 +133,7 @@ router.post('/authenticateseller', async(req,res) =>{
 
    if(verify_password === verify_email.password){
     res.status(200).send('Successful Seller')
-    return
+    return 
    }
    else{
     console.log("Wrong e-mail or password")
@@ -132,7 +143,7 @@ router.post('/authenticateseller', async(req,res) =>{
 }
 })
 
-router.get('/search', (req,res) =>{
+router.get('/search', (req,res) =>{                                                       //need to add search page
     const search=decodeURIComponent(req.query.q)
     console.log(search)
     res.send("Looks good")

@@ -7,10 +7,11 @@ import multer from 'multer'
 const app=express()
 const __filename=fileURLToPath(import.meta.url)
 const __dirname=path.dirname(__filename)
-const storage=multer.memoryStorage()
-const upload = multer({ storage: storage })
+// const storage=multer.memoryStorage()
+const upload = multer({ dest:'sellerdata/' })
 
 app.use(express.json())
+app.use(express.urlencoded({extended:false}))
 app.use('/',routes)
 app.use(express.static(path.join(__dirname,'../frontend')))
 

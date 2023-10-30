@@ -16,11 +16,10 @@
     </header>
 
     <section class="upload-form">
-        <!-- <form action="upload.php" method="post" enctype="multipart/form-data"> -->
-            <form method="post" enctype="multipart/form-data"></form>
+            <form action="/selldata" method="POST" enctype="multipart/form-data">
             <label for="product-images">Select Product Images:</label>
             <input type="file" id="product-images" name="image" accept="image/*" multiple>
-            
+            </form>
             <div id="image-preview" class="image-preview"></div>
             
             <label for="product-name">Product Name:</label>
@@ -54,23 +53,25 @@
                 alert("Please fill all the details")
             }
             else{
-                console.log("Received")  //this will be replaced
+                const formData= new FormData()
+                
+                formData.append('image', image)
+                formData.append('name' ,name)
+                formData.append('description', description)
+                formData.append('time' ,time)
+                formData.append('price',price)  
 
-                const data={
-                    image:image,
-                    name:name,
-                    description:description,
-                    time:time,
-                    price:price
-                }
-
-                fetch('/selldata',{    //maybe needs to be altered
+                fetch('/selldata',{                                  
                     method:"POST",
-                    headers:{
-                        "Content-Type":"application/json"
-                    },
-                    body:JSON.stringify(data)
-                }).then(response =>response.text()).then(result =>console.log(result))
+                    body:formData
+                }).then(response =>{
+                    if(response.status ===200){
+                        alert("Product Registered")
+                    }
+                    else{
+                        response=>response.text()
+                    }
+                }).then(result =>console.log(result))
             }
         }
 
