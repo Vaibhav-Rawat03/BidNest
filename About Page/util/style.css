@@ -1,56 +1,127 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap");
 
-*{
+body {
+    font-family: "Poppins", sans-serif;
+    background: linear-gradient(hsl(206, 68%, 91%) 0%, #aed7ff 100%); 
+    background-attachment: fixed; 
+    background-position: 100% center; 
+    background-position: center bottom 15%;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
 }
-body{
+
+.navbar {
+    height: 70px;
+    background-color: #333649;
+    color: white;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background: linear-gradient(#D5A3FF 0%, #77A5F8 100%);
+    justify-content: space-evenly;
+    align-items: center; 
+    padding: 3px 2px;
 }
 
-.wrapper{
-    background: #fff;
-    max-width: 850px;
-    width: 800px;
+.bitnest-text {
+    position: absolute;
+    top: 20px;
+    right: 1190px;
+    color: #efefde;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.logo {
+    background-image: url("BidNest.png");
+    height: 55px;
+    width: 55px;
+    background-size: cover;
+    position: absolute;
+    top: 8px;
+    left: 20px;
+}
+
+.Home-button {
+    position: absolute;
+    align-items: right;
+    top: 12px;
+    right: 50px;
+    text-decoration: none;
+    background-color: #3e4156;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 17px;
+}
+
+.Login-button {
+    position: absolute;
+    align-items: right;
+    top: 12px;
+    right: 210px;
+    text-decoration: none;
+    background-color: #3e4156;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 17px; 
+}
+
+.border {
+    border: 1.5px solid transparent;
+}
+.border:hover {
+    border: 1.5px solid white;
+}
+
+
+/*About-section*/
+.about-section{
+    height: 600px;
+    width: 60%;
+    background-color: white;
+    padding: 15px 15px 15px;
+    margin-top: 30px;
     border-radius: 25px;
-    padding: 20px;
-    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.4);
+    margin-left: 250px;
+    margin-right: 10px;
 }
 
-h1{
+.about-section h1 {
     text-align: center;
     text-transform: uppercase;
-    margin-bottom: 15px;
+    margin-bottom: 13px;
 }
 
-h3{
-    text-align: center;
-    text-transform: uppercase;
-    margin-bottom: 15px;
-}
-
-h4{
-    text-align: center;
-    font-size: 14px;
-    margin: 12px;
-}
-
-h5{
-    text-align: center;
-    font-size: 12px;
-    margin: 5px;
-}
-
-p{
+.content {
     text-align: justify;
-    font-size: 15px;
+    font-size: 16px;
     margin: 12px;
+    font-family: "poppins";
+}
+
+hr{
+    width: 110px;
+    margin: 10px auto;
+}
+
+/* Our Team*/
+
+.our-team{
+    height: 420px;
+    width: 60%;
+    background-color: white;
+    padding: 15px 15px 15px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    border-radius: 25px;
+    margin-left: 250px;
+    margin-right: 10px;
+}
+
+.our-team h1 {
+    text-align: center;
+    margin-bottom: 10px;
 }
 
 img{
@@ -61,21 +132,89 @@ img{
     box-shadow: -5px 10px 15px rgba(0, 0, 0, 0.4);
 }
 
-hr{
-    width: 100px;
-    margin: 10px auto;
-}
-
-.about-section{
+.members {
     display: flex;
+    justify-content: space-evenly;
+    align-items: center;
 }
 
-.members{
+.team-mem {
+    font-size: 15px;
+    font-family: "poppins";
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.our-team h1{
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
+
+.team-mem h3{
+    text-align: center;
+    margin-bottom: 15px;
+    font-size: 16px;
+}
+
+.team-mem h4{
+    text-align: center;
+    font-size: 13px;
+    margin: 5px;
+}
+
+.team-mem p{
+    text-align: center;
+    font-size: 15px;
+    margin: 12px;
+}
+
+/* Footer */
+
+footer {
+    margin-top: 15px;
+}
+
+.foot-panel1 {
+    background-color: #41445d;
+    color: white;
+    height: 50px;
     display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.85rem;
 }
 
-.team-mem{
-    margin: 8px;
-} 
+.foot-panel2 {
+    background-color: #333649;
+    color: white;
+    height: 150px;
+    display: flex;
+    justify-content: space-evenly ;
+}
 
+ul {
+    margin-top: 10px;
+}
+ul a { 
+    display: block;
+    font-size: 0.85rem;
+    margin-top: 10px;
+    color: #dddddd;
+}
 
+.foot-panel3 {
+    background-color: #333649;
+    color: white;
+    height: 80px;
+    font-size: 0.7rem;
+    text-align: center;
+}
+
+.pages {
+    padding-top: 25px;
+}
+
+.copyright {
+    padding-top: 5px;
+}
