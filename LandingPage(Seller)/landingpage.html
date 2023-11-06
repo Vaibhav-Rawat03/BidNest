@@ -25,16 +25,34 @@
             <label for="product-name">Product Name:</label>
             <input type="text" id="product-name" name="product-name" placeholder="Enter the product name"> 
 
-            <label for="description">Description:</label>
-            <textarea id="description" name="description" rows="4" cols="50" placeholder="Enter a description for the product"></textarea>
+            <label for="description">Description (1-30 words):</label>
+            <textarea id="description" name="description" rows="4" cols="50" placeholder="Enter a description for the product" oninput="checkWordCount(this);"></textarea>
             
             <label for="bidding-end-time">Bidding End Time:</label>
-            <input type="datetime-local" id="bidding-end-time" name="bidding-end-time">
+            <input type="datetime-local" id="bidding-end-time" name="bidding-end-time" oninput="updateTimeLeft()">
             
-            <label for="base-price">Base Price:</label>
-            <input type="number" id="base-price" name="base-price" step="0.01" placeholder="Enter the base price">
-            
-           
+
+            <label for="time-left">Time Left for Bidding:</label>
+<div id="time-left" class="timer">
+    <strong id="hours">00</strong>
+    <span>Hours</span>
+    <strong id="minutes">00</strong>
+    <span>Minutes</span>
+    <strong id="seconds">00</strong>
+    <span>Seconds</span>
+</div>
+
+<label for="base-sign">Base Price in INR:</label>
+<input type="text" id="base-sign" placeholder="Enter the base price in rupees ">
+ 
+<label for="base-price-usd">Base Price in USD:</label>
+<input type="number" id="base-price-usd" step="0.01" placeholder="Enter the base price in USD">
+<p>Base price should be in USD for conversion.</p>
+
+<button onclick="convertToINR()">Convert to INR</button>
+
+<label for="inr-label">Converted Price in INR:</label>
+<span id="inr-label"></span>
 
             <button type="submit" class="upload-button">Upload</button>
         </form>

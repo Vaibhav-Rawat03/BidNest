@@ -5,18 +5,27 @@ body, h1, h2, p, label, input, textarea {
 
 
 body {
-    background-color: #f4f4f4;
     font-family: Arial, sans-serif;
-    background-image: url('backgroundImage.jpg'); 
-            background-size: 100%;
-            background-repeat: no-repeat; 
-            background-attachment: fixed; 
-            background-position: 90% center; 
-            background-position: center bottom 15%;
-            margin: 0;
-            padding: 0;
+    background: linear-gradient(hsl(206, 68%, 91%) 0%, #aed7ff 100%); 
+    background-attachment: fixed; 
+    background-position: 100% center; 
+    background-position: center bottom 15%;
+    margin: 0;
+    padding: 0;
 }
-
+label {
+    background-color: #0052CC; /* Classic Blue background color */
+    color: white; /* Text color */
+    padding: 5px;
+    border-radius: 5px;
+}
+ 
+input, textarea {
+    background-color: #f2f2f2; /* Light gray background color */
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
 
 header {
     background-color: #333;
@@ -72,6 +81,24 @@ header h1 {
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
+.timer {
+    font-size: 24px;
+    color: #FF9900; /* Amazon-like orange color */
+    text-align: center;
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  
+  .timer strong {
+    font-size: 36px;
+    display: block;
+  }
+  
+  .timer span {
+    font-size: 18px;
+  }
+  
+
 .upload-form label {
     display: block;
     font-size: 16px;
@@ -93,20 +120,20 @@ header h1 {
 }
 
 .upload-button {
-    display: inline-block;
-    background-color: #333;
-    color: #fff;
-    padding: 10px 20px;
+    background-color: #FF6B6B; /* Coral Red background color */
+    color: white; /* Text color */
+    padding: 10px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 16px;
-    text-decoration: none;
 }
 .image-preview {
     margin-top: 10px;
 }
 
+#inr-label {
+    margin-top: 10px;
+}
 
 .preview-image {
     max-width: 100%;
