@@ -29,10 +29,13 @@ mongoose.connect("mongodb://127.0.0.1:27017/Minordb" ).then(() =>{console.log("c
 
 app.use(express.json())
 
-router.get('/',(req,res)=>{                                                           //loginpage
-    res.sendFile(path.join(__dirname,'../../frontend/Signin.html'))
+router.get('/',(req,res)=>{                                                           
+    res.sendFile(path.join(__dirname,'../../frontend/HomePage.html'))              //homepage
 })
 
+router.get('/signin' ,(req,res)=>{
+    res.sendFile(path.join(__dirname,'../../frontend/Signin.html'))                  //loginpage
+})
 router.get('/signup',(req,res)=>{                                                     //signuppage
     res.sendFile(path.join(__dirname,'../../frontend/Signup.html'))
 })
