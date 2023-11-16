@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="landingPagestyeL.css">
-    <title>Add Product Images</title>
+    <link rel="stylesheet" href="LandingPageStyle.css">
+    <title>Auction Your Own Product</title>
 </head>
 <body>
     <header>
         <img src="bidNest.png" alt="Logo" class="logo">
         <div class="bitnest-text">BidNest</div>
-        <h1>Upload Product Images</h1>
+        <h1 style="color: yellow;">Add Your Product Details</h1>
         <a href="index.html" class="about-button">About</a>
         <a href="all-products.html" class="products-button">All Products</a>
     </header>
@@ -25,8 +25,8 @@
             <label for="product-name">Product Name:</label>
             <input type="text" id="product-name" name="product-name" placeholder="Enter the product name"> 
 
-            <label for="description">Description (1-30 words):</label>
-            <textarea id="description" name="description" rows="4" cols="50" placeholder="Enter a description for the product" oninput="checkWordCount(this);"></textarea>
+            <label for="description">Description (max 50 words):</label>
+            <textarea id="description" name="description" rows="4" cols="50" placeholder="Enter description of the product" oninput="checkWordCount(this);"></textarea>
             
             <label for="bidding-end-time">Bidding End Time:</label>
             <input type="datetime-local" id="bidding-end-time" name="bidding-end-time" oninput="updateTimeLeft()">
@@ -42,19 +42,30 @@
     <span>Seconds</span>
 </div>
 
-<label for="base-sign">Base Price in INR:</label>
-<input type="text" id="base-sign" placeholder="Enter the base price in rupees ">
- 
-<label for="base-price-usd">Base Price in USD:</label>
-<input type="number" id="base-price-usd" step="0.01" placeholder="Enter the base price in USD">
-<p>Base price should be in USD for conversion.</p>
+<button id="timer-button" onclick="updateTimeLeft()">Start Timer</button>
+<div class="divider"></div>
 
-<button onclick="convertToINR()">Convert to INR</button>
+<div class="base-price-input">
+	<div class="input-container">
+		<label for="base-price" id="label1">Base Price:</label>
+		<input type="text" id="base-price-price" placeholder="Enter the base price ">
+	</div>
+	<div class="input-container">
+		<label for="currency" id="label2">Currency:</label>
+		<select id="currency" onchange="updateCurrency()">
+			<option value="$">$</option>
+			<option value="₹">₹</option>
+			<option value="€">€</option>
+			<option value="¥">¥</option>
+			<!-- Add more options as needed -->
+		</select>
+	</div>
+</div>
+<p>🤔 Not sure about the value, checkout the price trends <a href="https://www.google.com/search?channel=fs&client=ubuntu-sn&q=currency+converter">here</a></p>
+<br>
+<br>
 
-<label for="inr-label">Converted Price in INR:</label>
-<span id="inr-label"></span>
-
-            <button type="submit" class="upload-button">Upload</button>
+<button type="submit" class="upload-button">Upload</button>
         </form>
     </section>
 
