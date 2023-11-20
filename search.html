@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="style.css">
+	<title>Search your item</title>
+</head>
+<body>
+	<div class="Search">
+		<h2 class="header">What are you looking for?</h2>
+		<input type="text" name="search" id="search-box" class="form-control" placeholder="Search here">
+		<button type="button" class="rounded-btn">Filter</button>
+	</div>
+	<div class="row row-cols-4 row-cols-md-3 g-4">
+		<div class="col">
+			<div class="card h-100">
+				<img src="./imagecap.jpg" class="card-img-top" alt="...">
+				<hr class="m-0">
+				<div class="card-body">
+					<h3 class="card-title">Product Name</h3>
+					<p class="card-text">Details</p>
+					<p class="min-bid-price">Minimum Bidding Price</p>
+					<time>Time : time</time>
+				</div>
+				<div class="card-footer">
+					<hr class="m-0">
+					<button type="button" class="btn">Bid Now</button>
+					<button type="button" class="btn">Freeze</button>
+				</div>
+			</div>
+		</div>
+		<div class="col">
+			<div class="card h-100">
+				<img src="./imagecap.jpg" class="card-img-top" alt="...">
+				<hr class="m-0">
+				<div class="card-body">
+					<h3 class="card-title">Product Name</h3>
+					<p class="card-text">Details</p>
+					<p class="min-bid-price">Minimum Bidding Price</p>
+					<time>Time : time</time>
+				</div>
+				<div class="card-footer">
+					<hr class="m-0">
+					<button type="button" class="btn">Bid Now</button>
+					<button type="button" class="btn">Freeze</button>
+				</div>
+			</div>
+		</div>
+		<div class="col">
+			<div class="card h-100">
+				<img src="./imagecap.jpg" class="card-img-top" alt="...">
+				<hr class="m-0">
+				<div class="card-body">
+					<h3 class="card-title">Product Name</h3>
+					<p class="card-text">Details</p>
+					<p class="min-bid-price">Minimum Bidding Price</p>
+					<time>Time : time</time>
+				</div>
+				<div class="card-footer">
+					<hr class="m-0">
+					<button type="button" class="btn">Bid Now</button>
+					<button type="button" class="btn">Freeze</button>
+				</div>
+			</div>
+		</div>
+		<div class="col">
+			<div class="card h-100">
+				<img src="./imagecap.jpg" class="card-img-top" alt="...">
+				<hr class="m-0">
+				<div class="card-body">
+					<h3 class="card-title">Product Name</h3>
+					<p class="card-text">Details</p>
+					<p class="min-bid-price">Minimum Bidding Price</p>
+					<time>Time : time</time>
+				</div>
+				<div class="card-footer">
+					<hr class="m-0">
+					<button type="button" class="btn">Bid Now</button>
+					<button type="button" class="btn">Freeze</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script>
+		function search(){
+		 event.preventDefault()
+			 let s=document.getElementById('search-box').value
+			 // console.log("works")
+			 
+			 fetch('/searchpagesearch' , {
+				 method:"GET",
+				 headers:{
+					 'Content-Type':'application/json'
+				 },
+				 'body':JSON.stringify(s),
+			 }).then(response => response.text()).then(result => console.log(result))
+		}
+ 
+		document.getElementById('rounded-btn').addEventListener('click',search)
+ 
+	 </script>
+</body>
+
+</html>
