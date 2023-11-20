@@ -1,10 +1,18 @@
 import express from 'express'
+import session from 'express-session'
 import routes from './routes/routes.js'
 import {fileURLToPath} from 'url'
 import path from 'path'
 import multer from 'multer'
 
 const app=express()
+
+app.use(session({
+    secret: 'secret-key',
+    resave: false,
+    saveUninitialized: false
+}));
+
 const __filename=fileURLToPath(import.meta.url)
 const __dirname=path.dirname(__filename)
 // const storage=multer.memoryStorage()

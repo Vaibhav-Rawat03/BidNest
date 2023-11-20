@@ -46,10 +46,11 @@
             const image=document.getElementById('product-images').files[0]
             const name=document.getElementById('product-name').value
             const description=document.getElementById('description').value
-            const time=document.getElementById('bidding-end-time').value
+            const hour=document.getElementById('bidding-end-time').value
+            const minute=document.getElementById('bidding-end-time').value
             const price=document.getElementById('base-price').value
 
-            if(!image || name ==="" || description ==="" || time ==="" || price ===""){
+            if(!image || name ==="" || description ==="" || hour ==="" || minute=="" || price ===""){
                 alert("Please fill all the details")
             }
             else{
@@ -58,7 +59,8 @@
                 formData.append('image', image)
                 formData.append('name' ,name)
                 formData.append('description', description)
-                formData.append('time' ,time)
+                formData.append('hour' ,hour)
+                formData.append('minute',minute)
                 formData.append('price',price)  
 
                 fetch('/selldata',{                                  
@@ -67,6 +69,7 @@
                 }).then(response =>{
                     if(response.status ===200){
                         alert("Product Registered")
+                        window.location.href='/sell'
                     }
                     else{
                         response=>response.text()

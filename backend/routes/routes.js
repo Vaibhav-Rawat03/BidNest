@@ -1,24 +1,33 @@
 import express from 'express'
+import session from 'express-session'
 import path from 'path'
 import {fileURLToPath} from 'url'
 import multer from 'multer'
 import mongoose from 'mongoose'
-import {register} from './schema.js'
+import {register, sell} from './schema.js'
 import bcrypt from 'bcrypt'
 
 const app=express()
 const router=express.Router()
 
-const storage=multer.diskStorage({
-    destination:(req,file,cb)=>{
-        return cb(null , "./sellerdata")
-    },
-    
-    filename:(req,file,cb)=>{
-        return cb(null , `${Date.now()}-${file.originalname}`)
-    }
+app.use(session({
+    secret: 'secret-key',
+    resave: false,
+    saveUninitialized: false
+}));
 
-})
+// const storage=multer.diskStorage({                                              //to save file in the a directory
+//     destination:(req,file,cb)=>{
+//         return cb(null , "./sellerdata")
+//     },
+    
+//     filename:(req,file,cb)=>{
+//         return cb(null , `${Date.now()}-${file.originalname}`)
+//     }
+
+// })
+
+const storage=multer.memoryStorage();                                             //to get the buffer file of image for db storage
 const upload=multer({storage:storage})
 const __filename=fileURLToPath(import.meta.url)
 const __dirname=path.dirname(__filename)
@@ -52,10 +61,26 @@ router.get('/sell',(req,res) =>{                                                
     res.sendFile(path.join(__dirname,'../../frontend/Sellerlandingpage.html'))
 })
 
-router.post('/selldata', upload.single('image'), (req,res) =>{                        //fetch req from seller
+router.post('/selldata', upload.single('image'), async(req,res) =>{                        //fetch req from seller
   
   console.log(req.file)
-  console.log(req.body)
+// console.log(req.body)
+// console.log(req.session.email.email)
+  const sellerdata= req.body
+
+  const saveitem = new sell({
+    email:req.session.email.email,
+    image:req.file.buffer,
+    productname:sellerdata.name,
+    description:sellerdata.description,
+    // time:{
+    //     hour:sellerdata.hour,
+    //     minutes:sellerdata.minute
+    // },
+    minprice:sellerdata.price
+  })
+
+  await saveitem.save().then(()=>(console.log('Item registered'))).catch((error)=>(console.log('error registering item' , error)))
 
   return res.status(200).send("Successfully got the data")
 })
@@ -104,6 +129,7 @@ router.post('/authenticatebuyer', async(req,res) =>{                            
 
    if(verify_password === verify_email.password){
     // res.status=200
+    
     res.status(200).send('Successful Buyer')
     return  
    }
@@ -135,6 +161,9 @@ router.post('/authenticateseller', async(req,res) =>{                           
     // console.log(check_password)
 
    if(verify_password === verify_email.password){
+
+    req.session.email=verify_email
+
     res.status(200).send('Successful Seller')
     return 
    }

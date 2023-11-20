@@ -18,6 +18,45 @@ const newuser=new mongoose.Schema({
 
 const register =new mongoose.model('signup', newuser,'signup')
 
-//signin page
+//item registration page
+const itemregistration=new mongoose.Schema({
+    email:{
+        type:String,
+        required:true
+    },
+    image:{
+        type:Buffer,
+        contentType:String,
+        required:true
+    },
+    productname:{
+        type:String,
+        required:true
+    },
+    description:{
+        type:String,
+        required:true
+    },
+    // time:{
+    //     hours:{
+    //         type:Number,
+    //         required:true,
+    //         min:0,
+    //         max:99
+    //     },
+    //     minutes:{
+    //         type:Number,
+    //         required:true,
+    //         min:0,
+    //         max:59
+    //     }
+    // },
+    minprice:{
+        type:Number,
+        required:true
+    }
+})
 
-export {register}
+const sell=new mongoose.model('sell',itemregistration,'sell')
+
+export {register , sell}
