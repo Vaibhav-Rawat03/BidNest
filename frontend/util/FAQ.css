@@ -6,6 +6,7 @@ body {
     background-position: center bottom 15%;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
  .navbar {
@@ -120,7 +121,7 @@ body {
     border-radius: 5px;
 }
 
-.panel {
+.panel1 {
     height: 40px;
     background-color: #41445d;
     display: flex;
@@ -128,3 +129,52 @@ body {
     align-items: center;
     justify-content: space-evenly;
 }
+
+/* FAQS */
+
+.wrapper {
+    max-width: 75%;
+    margin: auto;
+}
+
+.wrapper > h2 {
+    margin: 1.5rem 0;
+    text-align: center;
+    letter-spacing: 1.5px;
+}
+
+.accordion {
+    background-color: white;
+    color: black;
+    cursor: pointer;
+    font-size: 1.2rem;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+}
+
+.accordion i {
+    font-size: 1.6rem;
+}
+
+.active, .accordion:hover {
+    background-color: #f1f7f5;
+}
+
+.pannel {
+    padding: 0 2rem 2.5rem 2rem;
+    background-color: white;
+    overflow: hidden;
+    background-color: #f1f7f5;
+}
+
+.pannel p {
+    color: rgba(0,0,0,0.7);
+    font-size: 1.2rem;
+    line-height: 1.4;
+}
+
