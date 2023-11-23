@@ -1,0 +1,75 @@
+body {
+    font-family: Arial, sans-serif;
+    background: rgba(255, 255, 255, -2.3);
+    background-image: url('background-image.jpg'); 
+    background-size: 120%;
+    background-repeat: no-repeat; 
+    background-attachment: fixed; 
+    background-position: 90% center; 
+    background-position: center bottom 15%;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 43px 0;
+    text-align: center;
+}
+
+header a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 0px;
+}
+.about-button {
+    position: absolute;
+    top: 25px;
+    right: 30px;
+    text-decoration: none;
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.container {
+    text-align: center;
+    margin-top: 100px;
+}
+
+input[type="text"] {
+    width: 300px;
+    padding: 10px;
+    border: 2px solid #000;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+input[type="submit"] {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+.logo {
+    position: absolute;
+    top: 10px;
+    left: 15px;
+    width: 70px; 
+    height: auto;
+}
+.bitnest-text {
+    position: absolute;
+    top: 30px;
+    right: 1350px;
+    color: #c5c517;
+    font-size: 24px;
+    font-weight: bold;
+}
