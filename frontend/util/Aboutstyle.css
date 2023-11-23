@@ -175,16 +175,6 @@ footer {
     margin-top: 15px;
 }
 
-.foot-panel1 {
-    background-color: #41445d;
-    color: white;
-    height: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 0.85rem;
-}
-
 .foot-panel2 {
     background-color: #333649;
     color: white;

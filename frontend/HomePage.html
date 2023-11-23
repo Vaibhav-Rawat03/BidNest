@@ -27,7 +27,9 @@
                 <a href="Sellerlandingpage.html" style="color: #ffffff;">Seller</a>
             </div>
             <div class="My-Cart border">My-Cart</div>
-            <div class="Contact-Us border">Contact Us</div>
+            <div class="Contact-Us border">
+                <button onclick="scrollToContact()" id="TopTobackBtn" title="Contact Us">Contact Us</button>
+            </div>
         </div>
 
     </header>
@@ -183,8 +185,8 @@
     </div>
 
     <footer>
-        <div class="foot-panel1">
-            Back to Top
+        <div class="back-to-top-container">
+            <button onclick="scrollToTop()" id="backToTopBtn" title="Go to top">Back to Top</button>
         </div>
 
         <div class="foot-panel2">
@@ -203,10 +205,13 @@
             <ul>
                 <p>Contact Us</p>
                 <a>Support | Helpdesk</a>
-                <a><i class="fa-solid fa-tty"></i> +91-123-7894561</a>
-                <a><i class="fa-solid fa-phone"></i> +91-7485963215</a>
+                <a><i class="fa-solid fa-phone"></i> +91-7427837185</a>
+                <a><i class="fa-solid fa-phone"></i> +91-9119759446</a>
                 <a><i class="fa-regular fa-envelope"></i> support@bidnest.com</a>
             </ul>
+        </div>
+
+        <div id="contactSection">
         </div>
 
         <div class="foot-panel3">
@@ -217,6 +222,7 @@
                 © Copyright 2023 India - All Rights Reserved
             </div>
         </div>
+        <script src="util/HomePage.js"></script>
     </footer>
 </body>
 </html>

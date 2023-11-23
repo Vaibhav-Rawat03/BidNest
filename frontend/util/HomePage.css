@@ -121,6 +121,15 @@ body {
 }
 
 .panel {
+    height: 50px;
+    background-color: #41445d;
+    display: flex;
+    color: white;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.Contact-Us{
     height: 40px;
     background-color: #41445d;
     display: flex;
@@ -129,6 +138,9 @@ body {
     justify-content: space-evenly;
 }
 
+#contactBtn:hover {
+    background-color:#41445d;
+}
 
 /*product section*/
 .product-section {
@@ -166,7 +178,7 @@ footer {
     margin-top: 15px;
 }
 
-.foot-panel1 {
+.back-to-top-container {
     background-color: #41445d;
     color: white;
     height: 50px;
@@ -174,6 +186,10 @@ footer {
     justify-content: center;
     align-items: center;
     font-size: 0.85rem;
+    cursor: pointer;
+}
+#TopTobackBtn:hover {
+    background-color: #41445d;
 }
 
 .foot-panel2 {
