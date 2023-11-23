@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="LandingPageStyle.css">
+    <title>Auction Your Own Product</title>
+</head>
+<body>
+    <header>
+        <img src="BidNest.png" alt="Logo" class="logo">
+        <div class="bidnest-text">BidNest</div>
+        <h1>Add Your Product Details</h1>
+        <a href="index.html" class="about-button">About</a>
+        <a href="all-products.html" class="products-button">All Products</a>
+    </header>
+
+    <section class="upload-form">
+        <form action="upload.php" method="post" enctype="multipart/form-data">
+            <label for="product-images">Select Product Images:</label>
+            <input type="file" id="product-images" name="product-images" accept="image/*" multiple>
+            
+            <div id="image-preview" class="image-preview"></div>
+            
+            <label for="product-name">Product Name:</label>
+            <input type="text" id="product-name" name="product-name" placeholder="Enter the product name"> 
+
+            <label for="description">Description (max 50 words):</label>
+            <textarea id="description" name="description" rows="4" cols="50" placeholder="Enter description of the product" oninput="checkWordCount(this);"></textarea>
+			
+			<label for="time-left">Time Left for Bidding:</label>
+			<div id="time-left" class="timer">
+				<label for="hours" id="label3">Hours:</label>
+				<input type="number" id="hours" name="hours" min="0" max="24">
+				<label for="minutes" id="label4">Minutes:</label>
+				<input type="number" id="minutes" name="minutes" min="0" max="60">
+			</div>
+
+
+<div class="divider"></div>
+
+<div class="base-price-input">
+	<div class="input-container">
+		<label for="base-price" id="label1">Base Price:</label>
+		<input type="text" id="base-price-price" placeholder="Enter the base price ">
+	</div>
+	<div class="input-container">
+		<label for="currency" id="label2">Currency:</label>
+		<select id="currency" onchange="updateCurrency()">
+			<option value="$">$</option>
+			<option value="₹">₹</option>
+			<option value="€">€</option>
+			<option value="¥">¥</option>
+			<!-- Add more options as needed -->
+		</select>
+	</div>
+</div>
+<p>🤔 Not sure about the value, checkout the price trends <a href="https://www.google.com/search?channel=fs&client=ubuntu-sn&q=currency+converter">here</a></p>
+<br>
+<br>
+
+<button type="submit" class="upload-button">Upload</button>
+        </form>
+    </section>
+
+    <script src="script.js"></script>
+
+ 
+</body>
+</html>
