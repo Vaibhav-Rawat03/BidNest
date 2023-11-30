@@ -38,9 +38,9 @@
         <h3>How can we help you?</h3>
     
         <div class="search-questions">
-            <input placeholder="Write your question here..." class="search-input">
+            <input placeholder="Write your question here..." class="search-input" id="search-input">
             <div class="search-icons">
-                <button type="button" class="search-button">
+                <button type="button" class="search-button" id="search-button">
                     <i class="fa-sharp fa-solid fa-magnifying-glass" style="color: #ffffff;"></i>
                 </button>
             </div>
@@ -154,6 +154,32 @@
 
     </div>
 
+<script>
+        function question(){
+            const ques=document.getElementById("search-input").value
+            const data={
+                ques:ques
+            }
+            
+            if(ques==""){
+                alert("Enter a question")
+            }
+            else{
+                fetch('/ques', {
+                method:'POST',
+                headers:{
+                    'Content-Type': 'application/json'
+                },
+                'body':JSON.stringify(data)    
+            }).then(response =>{
+                //  alert("We'll get back to you ASAP");
+                response.text();
+                console.log("working");
+            }).then(result=>console.log(result))
+            }
+        }
 
+        document.getElementById("search-button").addEventListener('click', question)
+</script>
 </body>
 </html>

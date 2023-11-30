@@ -4,7 +4,7 @@ import path from 'path'
 import {fileURLToPath} from 'url'
 import multer from 'multer'
 import mongoose from 'mongoose'
-import {register, sell} from './schema.js'
+import {register, sell, ques} from './schema.js'
 import bcrypt from 'bcrypt'
 
 const app=express()
@@ -63,7 +63,7 @@ router.get('/sell',(req,res) =>{                                                
 
 router.post('/selldata', upload.single('image'), async(req,res) =>{                        //fetch req from seller
   
-//   console.log(req.file)
+// console.log(req.file)
 // console.log(req.body)
 // console.log(req.session.email.email)
   const sellerdata= req.body
@@ -127,6 +127,8 @@ router.post('/authenticatebuyer', async(req,res) =>{                            
 
    if(verify_password === verify_email.password){
     // res.status=200
+
+    req.session.email=verify_email
     
     res.status(200).send('Successful Buyer')
     return  
@@ -171,6 +173,14 @@ router.post('/authenticateseller', async(req,res) =>{                           
     return
    }
 }
+})
+router.post('/ques', async(req,res)=>{
+    const saveques = new ques({
+        email:req.session.email.email,
+        ques:req.body.ques
+    })
+    await saveques.save().then(() => console.log('Question registered')).catch(() => console.log("Not registered Question"))
+    res.send("Ques saved")
 })
 
 router.get('/search', (req,res) =>{                                                       //need to add search page

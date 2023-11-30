@@ -57,4 +57,19 @@ const itemregistration=new mongoose.Schema({
 
 const sell=new mongoose.model('sell',itemregistration,'sell')
 
-export {register , sell}
+const questions=new mongoose.Schema({
+    email:{
+        type:String,
+        required:true
+    },
+    ques:{
+        type:String,
+        reuired:true
+    }
+})
+
+const ques=new mongoose.model('questions',questions,'questions')
+
+
+
+export {register , sell , ques}
