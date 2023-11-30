@@ -183,10 +183,14 @@ router.post('/ques', async(req,res)=>{
     res.send("Ques saved")
 })
 
-router.get('/search', (req,res) =>{                                                       //need to add search page
-    const search=decodeURIComponent(req.query.q)
-    console.log(search)
+router.post('/search1', (req,res) =>{                                                       //post req of homepagebuyers page
+    const search=req.body.search
+    req.session.searchdata=search
     res.send("Looks good")
+})
+
+router.get('/search', (req,res) =>{                                                      //new search page needs to be added here
+    res.send(`${req.session.searchdata}`)
 })
 
 
