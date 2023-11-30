@@ -63,7 +63,7 @@ router.get('/sell',(req,res) =>{                                                
 
 router.post('/selldata', upload.single('image'), async(req,res) =>{                        //fetch req from seller
   
-//console.log(req.file)
+//   console.log(req.file)
 // console.log(req.body)
 // console.log(req.session.email.email)
   const sellerdata= req.body
