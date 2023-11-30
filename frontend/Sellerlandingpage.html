@@ -32,9 +32,9 @@
 			<label for="time-left">Time Left for Bidding:</label>
 			<div id="bidding-end-time" class="timer">
 				<label for="hours" id="Hours">Hours:</label>
-				<input type="number" id="hours" name="hours" min="0" max="24">
-				<label for="minutes" id="Minutes">Minutes:</label>
-				<input type="number" id="minutes" name="minutes" min="0" max="60">
+                <input type="number" id="hours" name="hours" min="0" max="24">
+                <label for="minutes" id="Minutes">Minutes:</label>
+                <input type="number" id="minutes" name="minutes" min="0" max="60">
 			</div>
 
 
@@ -79,10 +79,11 @@
                 formData.append('image', image)
                 formData.append('name' ,name)
                 formData.append('description', description)
-                formData.append('hour' ,hour)
-                formData.append('minute',minute)
+                formData.append('hours' ,hour)
+                formData.append('minutes',minute)
                 formData.append('price',price)  
 
+                console.log(hour)
                 fetch('/selldata',{                                  
                     method:"POST",
                     body:formData
