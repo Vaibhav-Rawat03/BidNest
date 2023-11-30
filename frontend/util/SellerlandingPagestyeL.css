@@ -5,21 +5,31 @@ body, h1, h2, p, label, input, textarea {
 
 
 body {
-    background-color: #f4f4f4;
     font-family: Arial, sans-serif;
-    background-image: url('./backgroundImageSeller.jpg'); 
-            background-size: 100%;
-            background-repeat: no-repeat; 
-            background-attachment: fixed; 
-            background-position: 90% center; 
-            background-position: center bottom 15%;
-            margin: 0;
-            padding: 0;
+    background: linear-gradient(hsl(206, 68%, 91%) 0%, #aed7ff 100%); 
+    background-attachment: fixed; 
+    background-position: 100% center; 
+    background-position: center bottom 15%;
+    margin: 0;
+    padding: 0;
+}
+label {
+    background-color: #0052CC; /* Classic Blue background color */
+    color: white; /* Text color */
+    padding: 5px;
+    border-radius: 5px;
+	white-space: nowrap;
+}
+ 
+input, textarea {
+    background-color: #f2f2f2; /* Light gray background color */
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
 
-
 header {
-    background-color: #333;
+    background-color: #4e4f65;
     color: #fff;
     padding: 20px 0;
     text-align: center;
@@ -34,16 +44,17 @@ header h1 {
     top: 20px;
     right: 120px;
     text-decoration: none;
-    background-color: #333;
-    color: #fff;
+    background-color: #3e4156;
+    color: yellow;
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
     font-size: 16px;
+	margin-right: 35px;
 }
 
-.about-button + .products-button {
-    margin-left: 630px;
+.products-button {
+    margin-left: 590px;
 }
 
 .products-button:last-child {
@@ -51,10 +62,9 @@ header h1 {
     top: 46px;
     margin-right: 200;
     margin-top: -26px;
-    /* Adjust as needed */
     text-decoration: none;
-    background-color: #333;
-    color: #fff;
+    background-color: #3e4156;
+    color: yellow;
     padding: 10px 20px;
     border: none;
     border-radius: 1px;
@@ -63,7 +73,7 @@ header h1 {
 }
 
 .upload-form {
-    max-width: 600px;
+    max-width: 700px;
     margin: 20px auto;
     background-color: #fff;
     padding: 20px;
@@ -84,7 +94,7 @@ header h1 {
 .upload-form input[type="text"],
 .upload-form textarea {
     display: block;
-    width: 100%;
+    width: 97%;
     margin-bottom: 20px;
     padding: 10px;
     border: 1px solid #ddd;
@@ -93,20 +103,20 @@ header h1 {
 }
 
 .upload-button {
-    display: inline-block;
-    background-color: #333;
-    color: #fff;
-    padding: 10px 20px;
+    background-color: #FF6B6B; /* Coral Red background color */
+    color: white; /* Text color */
+    padding: 10px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 16px;
-    text-decoration: none;
 }
 .image-preview {
     margin-top: 10px;
 }
 
+#inr-label {
+    margin-top: 10px;
+}
 
 .preview-image {
     max-width: 100%;
@@ -123,13 +133,14 @@ header h1 {
     width: 60px; 
     height: auto;
 }
-.bitnest-text {
+.bidnest-text {
     position: absolute;
     top: 30px;
     right: 1325px;
-    color: #c5c517;
+    color: yellow;
     font-size: 24px;
     font-weight: bold;
+	margin-right: 21%;
 }
 
 footer {
@@ -137,4 +148,62 @@ footer {
     background-color: #333;
     color: #fff;
     padding: 10px 0;
+}
+.base-price-input {
+    display: flex;
+    justify-content: space-between;
+}
+
+.input-container {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+#base-price-price, #currency {
+    margin-top: 10px; 
+	width: 90%;
+}
+#base-price-price	{
+	height: 5px;
+}
+
+#label1	{
+	width: 27%;
+	margin-top: 15px;
+}
+#currency	{
+	margin-top: 66px;
+	width: 15%;
+}
+#label2	{
+	display: none;
+}
+
+.divider {
+    border-top: 1px groove #0052CC;
+}
+.timer {
+    display: flex;
+    justify-content: space-between;
+    width: 60%;
+}
+
+.timer label {
+    margin-right: 10px;
+}
+
+.timer input {
+    width: 40%;
+    height: 6px;
+	margin-right: 15%;
+	margin-left: 0%;
+}
+#label3, #label4	{
+	width: 60px;
+	height: 17px;
+}
+h1	{
+	margin-top: 7px;
+	color: yellow;
 }

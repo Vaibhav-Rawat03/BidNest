@@ -37,20 +37,18 @@ const itemregistration=new mongoose.Schema({
         type:String,
         required:true
     },
-    // time:{
-    //     hours:{
-    //         type:Number,
-    //         required:true,
-    //         min:0,
-    //         max:99
-    //     },
-    //     minutes:{
-    //         type:Number,
-    //         required:true,
-    //         min:0,
-    //         max:59
-    //     }
-    // },
+    hours:{
+            type:Number,
+            required:true,
+            min:0,
+            max:99
+        },
+    minutes:{
+            type:Number,
+            required:true,
+            min:0,
+            max:59
+    },
     minprice:{
         type:Number,
         required:true
