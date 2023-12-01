@@ -189,8 +189,13 @@ router.post('/search1', (req,res) =>{                                           
     res.send("Looks good")
 })
 
-router.get('/search', (req,res) =>{                                                      //new search page needs to be added here
+router.get('/search', async(req,res) =>{                                                      //new search page needs to be added here
     res.send(`${req.session.searchdata}`)
+})
+
+router.get('/getitems', async(req,res)=>{                                                     // send data to frontend
+    const items=await sell.find(`${req.session.searchdata}`)
+    res.json(items)
 })
 
 
