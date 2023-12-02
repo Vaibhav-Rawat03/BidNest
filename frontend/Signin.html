@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="./util/stylesignin.css">
+</head>
+<body>
+    <div class="background">
+        <div class="Loginparent">
+            <h1 class="logo">TechTitans</h1>
+            <div class="Login">
+                <h2>Enter your Credentials</h2>
+                <form>
+                    <label for="email">Email:</label>
+                    <input type="text" id="email" name="email" placeholder="Your Email">
+
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" placeholder="Your password">
+
+                    <button id='loginb' class="login" type="button">Log In as Buyer</button>
+                    <br>
+                    <button id='logins' class="login" type="button">Log In as Seller</button>
+                </form>
+                <!-- <div class="buttons">
+                    <button class="new-user">Create New User</button>
+                </div> -->
+                <div class="link">
+                <a href="Signup.html" style="color:whitesmoke">SignUp</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+  <script>
+    function authenticateseller(){
+        const email =document.getElementById('email').value
+        const password =document.getElementById('password').value
+
+        if(email == "" || password == ""){
+            alert('Hacker bhay Hacker')
+            return
+        }
+        else{
+            const secure={
+                email:email,
+                password:password,
+            }
+
+            fetch('/authenticateseller', {
+                method:'POST',
+                headers:{
+                    'Content-Type':'application/json'
+                },
+                body:JSON.stringify(secure)
+            }).then(response =>{
+                if(response.status == 200){
+                window.location.href='/sell'
+            }
+            else{
+                response=>response.text()
+                alert("Wrong E-mail and/or password")
+                console.log("Wrong")
+            }
+        }).then(result=>console.log(result))
+        }
+    }
+
+    function authenticatebuyer(){
+        const email =document.getElementById('email').value
+        const password =document.getElementById('password').value
+
+        if(email == "" || password == ""){
+            alert('Hacker bhay Hacker')
+            return
+        }
+        else{
+            const secure={
+                email:email,
+                password:password,
+            }
+
+            fetch('/authenticatebuyer', {
+                method:'POST',
+                headers:{
+                    'Content-Type':'application/json'
+                },
+                body:JSON.stringify(secure)
+            }).then(response =>{
+                if(response.status == 200){
+                window.location.href='/homebuyer'
+            }
+            else{
+                response=>response.text()
+                alert("Wrong E-mail and/or password")
+                
+            }
+        }).then(result=>console.log(result))
+        }
+    }
+
+    document.getElementById('loginb').addEventListener('click' , authenticatebuyer)
+    document.getElementById('logins').addEventListener('click' , authenticateseller)
+  </script>
+  </body>
+</html>

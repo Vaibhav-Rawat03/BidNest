@@ -1,7 +1,7 @@
 body {
     font-family: Arial, sans-serif;
     background: rgba(255, 255, 255, -2.3);
-    background-image: url('background-image.jpg'); 
+    background-image: url('./background-imageBuyerHome.jpg'); 
     background-size: 120%;
     background-repeat: no-repeat; 
     background-attachment: fixed; 

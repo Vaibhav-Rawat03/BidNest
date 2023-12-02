@@ -1,0 +1,210 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap");
+
+body {
+    font-family: "Poppins", sans-serif;
+    background: linear-gradient(hsl(206, 68%, 91%) 0%, #aed7ff 100%); 
+    background-attachment: fixed; 
+    background-position: 100% center; 
+    background-position: center bottom 15%;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar {
+    height: 70px;
+    background-color: #333649;
+    color: white;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center; 
+    padding: 3px 2px;
+}
+
+.bitnest-text {
+    position: absolute;
+    top: 20px;
+    right: 1190px;
+    color: #efefde;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.logo {
+    background-image: url("BidNest.png");
+    height: 55px;
+    width: 55px;
+    background-size: cover;
+    position: absolute;
+    top: 8px;
+    left: 20px;
+}
+
+.Home-button {
+    position: absolute;
+    align-items: right;
+    top: 12px;
+    right: 50px;
+    text-decoration: none;
+    background-color: #3e4156;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 17px;
+}
+
+.Login-button {
+    position: absolute;
+    align-items: right;
+    top: 12px;
+    right: 210px;
+    text-decoration: none;
+    background-color: #3e4156;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 17px; 
+}
+
+.border {
+    border: 1.5px solid transparent;
+}
+.border:hover {
+    border: 1.5px solid white;
+}
+
+
+/*About-section*/
+.about-section{
+    height: 600px;
+    width: 60%;
+    background-color: white;
+    padding: 15px 15px 15px;
+    margin-top: 30px;
+    border-radius: 25px;
+    margin-left: 250px;
+    margin-right: 10px;
+}
+
+.about-section h1 {
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 13px;
+}
+
+.content {
+    text-align: justify;
+    font-size: 16px;
+    margin: 12px;
+    font-family: "poppins";
+}
+
+hr{
+    width: 110px;
+    margin: 10px auto;
+}
+
+/* Our Team*/
+
+.our-team{
+    height: 420px;
+    width: 60%;
+    background-color: white;
+    padding: 15px 15px 15px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    border-radius: 25px;
+    margin-left: 250px;
+    margin-right: 10px;
+}
+
+.our-team h1 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+img{
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    margin: 20px;
+    box-shadow: -5px 10px 15px rgba(0, 0, 0, 0.4);
+}
+
+.members {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.team-mem {
+    font-size: 15px;
+    font-family: "poppins";
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.our-team h1{
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
+
+.team-mem h3{
+    text-align: center;
+    margin-bottom: 15px;
+    font-size: 16px;
+}
+
+.team-mem h4{
+    text-align: center;
+    font-size: 13px;
+    margin: 5px;
+}
+
+.team-mem p{
+    text-align: center;
+    font-size: 15px;
+    margin: 12px;
+}
+
+/* Footer */
+
+footer {
+    margin-top: 15px;
+}
+
+.foot-panel2 {
+    background-color: #333649;
+    color: white;
+    height: 150px;
+    display: flex;
+    justify-content: space-evenly ;
+}
+
+ul {
+    margin-top: 10px;
+}
+ul a { 
+    display: block;
+    font-size: 0.85rem;
+    margin-top: 10px;
+    color: #dddddd;
+}
+
+.foot-panel3 {
+    background-color: #333649;
+    color: white;
+    height: 80px;
+    font-size: 0.7rem;
+    text-align: center;
+}
+
+.pages {
+    padding-top: 25px;
+}
+
+.copyright {
+    padding-top: 5px;
+}

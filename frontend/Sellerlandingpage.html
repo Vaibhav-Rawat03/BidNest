@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./util/SellerlandingPagestyeL.css">
+    <title>Auction Your Own Product</title>
+</head>
+<body>
+    <header>
+        <img src="./util/BidNest.png" alt="Logo" class="logo">
+        <div class="bidnest-text">BidNest</div>
+        <h1>Add Your Product Details</h1>
+        <a href="./About.html" class="about-button">About</a>
+        <a href="" class="products-button">All Products</a>
+    </header>
+
+    <section class="upload-form">
+        <form action="/selldata" method="POST" enctype="multipart/form-data">
+            <label for="product-images">Select Product Images:</label>
+            <input type="file" id="product-images" name="image" accept="image/*" multiple>
+            </form>
+            
+            <div id="image-preview" class="image-preview"></div>
+            
+            <label for="product-name">Product Name:</label>
+            <input type="text" id="product-name" name="product-name" placeholder="Enter the product name"> 
+
+            <label for="description">Description (max 50 words):</label>
+            <textarea id="description" name="description" rows="4" cols="50" placeholder="Enter description of the product" oninput="checkWordCount(this);"></textarea>
+			
+			<label for="time-left">Time Left for Bidding:</label>
+			<div id="bidding-end-time" class="timer">
+				<label for="hours" id="Hours">Hours:</label>
+                <input type="number" id="hours" name="hours" min="0" max="24">
+                <label for="minutes" id="Minutes">Minutes:</label>
+                <input type="number" id="minutes" name="minutes" min="0" max="60">
+			</div>
+
+
+<div class="divider"></div>
+
+<div class="base-price-input">
+	<div class="input-container">
+		<label for="base-price" id="label1">Base Price:</label>
+		<input type="text" id="base-price-price" placeholder="Enter the base price ">
+	</div>
+	<div class="input-container">
+		<label for="currency" id="label2">Currency:</label>
+		<select id="currency" onchange="updateCurrency()">
+			<option value="₹">₹</option>
+		</select>
+	</div>
+</div>
+<p>🤔 Not sure about the value, checkout the price trends <a href="https://www.google.com/search?channel=fs&client=ubuntu-sn&q=currency+converter">here</a></p>
+<br>
+<br>
+
+<button type="submit" class="upload-button" id="upload">Upload</button>
+        </form>
+    </section>
+
+    <script>
+        function upload(){
+            const image=document.getElementById('product-images').files[0]
+            const name=document.getElementById('product-name').value
+            const description=document.getElementById('description').value
+            const hour = document.getElementById('hours').value;
+            const minute = document.getElementById('minutes').value;
+            const price = document.getElementById('base-price-price').value;
+
+
+            if(!image || name ==="" || description ==="" || hour ==="" || minute=="" || price ===""){
+                alert("Please fill all the details")
+            }
+            else{
+                const formData= new FormData()
+                
+                formData.append('image', image)
+                formData.append('name' ,name)
+                formData.append('description', description)
+                formData.append('hours' ,hour)
+                formData.append('minutes',minute)
+                formData.append('price',price)  
+
+                console.log(hour)
+                fetch('/selldata',{                                  
+                    method:"POST",
+                    body:formData
+                }).then(response =>{
+                    if(response.status ===200){
+                        alert("Product Registered")
+                        window.location.href='/sell'
+                    }
+                    else{
+                        response=>response.text()
+                    }
+                }).then(result =>console.log(result))
+            }
+        }
+
+         document.getElementById('upload').addEventListener("click", upload)
+    </script>
+
+ 
+</body>
+</html>
