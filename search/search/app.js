@@ -1,10 +1,10 @@
-var products = [
+var items = [
     { name: "Product 1", details: "Details 1", minBidPrice: "Price 1", time: "Time 1" },
     { name: "Product 2", details: "Details 2", minBidPrice: "Price 2", time: "Time 2" },
     // ... more products
 ];
 var container = document.querySelector('#product-list'); 
-products.forEach(function(product) {
+items.forEach(function(product) {
     var cardHTML = `
         <div class="col">
             <div class="card h-100">
