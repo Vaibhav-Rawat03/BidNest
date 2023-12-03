@@ -1,12 +1,33 @@
-	window.onload = function() {
+var products = [
+	{
+	  name: 'Product 1',
+	  image: 'https://via.placeholder.com/150',
+	},
+	{
+	  name: 'Product 2',
+	  image: 'https://via.placeholder.com/150',
+	},
+	{
+	  name: 'Product 3',
+	  image: 'https://via.placeholder.com/150',
+	},
+	{
+	  name: 'Product 4',
+	  image: 'https://via.placeholder.com/150',
+	},
+	{
+	  name: 'Product 5',
+	  image: 'https://via.placeholder.com/150',
+	},
+  ];
+  
+ 
+ 
+  window.onload = function() {
 		var productList = document.getElementById('product-list');
 		var modal = document.getElementById('myModal');
 		var modalDetails = document.getElementById('modal-details');
 		var span = document.getElementsByClassName('close')[0];
-		fetch('/getitems')
-		.then(response => response.json())
-		.then(products => {
-			console.log(products)
 		products.forEach(function(product, index) {
 			var productCard = document.createElement('div');
 			productCard.className = 'product-card';
@@ -73,8 +94,8 @@
 				// Implement the functionality for the Bid Now button
 			});
 		});
-	})
-	.catch(error => console.error('Error:', error));
+	
+
 
 		span.onclick = function() {
 			modal.style.display = 'none';
@@ -87,3 +108,18 @@
 		}
 	};
 
+	function mySearch() {
+		var input, filter, cards, cardContainer, h2, title, i;
+		input = document.getElementById("search-box");
+		filter = input.value.toUpperCase();
+		cardContainer = document.getElementById("product-list");
+		cards = cardContainer.getElementsByClassName("product-card");
+		for (i = 0; i < cards.length; i++) {
+		  title = cards[i].querySelector(".product-name");
+		  if (title.innerText.toUpperCase().indexOf(filter) > -1) {
+			cards[i].style.display = "";
+		  } else {
+			cards[i].style.display = "none";
+		  }
+		}
+	  }
