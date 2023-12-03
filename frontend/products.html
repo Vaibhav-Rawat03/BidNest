@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Page</title>
+    <link rel="stylesheet" type="text/css" href="./util/style.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body><div class="Search">
+	<h2 class="header">What are you looking for?</h2>
+	<form>
+		<div class="search-container">
+			<i class="fa fa-search search-icon"></i>
+			<input type="text" name="search" id="search-box" class="form-control" placeholder="Search here" onkeyup="mySearch()" required/>
+		</div>
+		<button type="button" class="rounded-btn">Filter</button>
+	</form>
+</div>
+    <div id="product-list">
+        <!-- Products will be populated here -->
+    </div>
+
+    <div id="product-details">
+        <!-- Product details will be shown here -->
+    </div>
+	<div id="myModal" class="modal">
+		<div class="modal-content">
+			<span class="close">&times;</span>
+			<div id="modal-details"></div>
+		</div>
+	</div>
+
+    <script src="../frontend/util/app.js"></script>
+</body>
+</html>
