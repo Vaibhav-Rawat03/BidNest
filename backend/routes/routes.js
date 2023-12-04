@@ -190,14 +190,16 @@ router.post('/search1', (req,res) =>{                                           
 })
 
 router.get('/search', async(req,res) =>{                                                      //new search page needs to be added here
-    // res.sendFile(path.join(__dirname,'../../frontend/search.html')) 
-    const Product=await sell.find( )
-    res.json(Product)
+    res.sendFile(path.join(__dirname,'../../frontend/search.html')) 
+    // const Product=await sell.find( )
+    // console.log(Product)
+    // res.json(Product)
     
 })
 
 router.get('/getitems', async(req,res)=>{                                                     // send data to frontend
     const Product=await sell.find({ fieldName: req.session.searchdata })
+    console.log(Product)
     res.json(Product)
 })
 
