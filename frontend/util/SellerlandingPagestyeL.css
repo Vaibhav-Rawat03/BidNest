@@ -14,7 +14,7 @@ body {
     padding: 0;
 }
 label {
-    background-color: #0052CC; /* Classic Blue background color */
+    background-color: #1c6ae0; /* Classic Blue background color */
     color: white; /* Text color */
     padding: 5px;
     border-radius: 5px;
@@ -29,47 +29,54 @@ input, textarea {
 }
 
 header {
-    background-color: #4e4f65;
+    background-color: #333649;
     color: #fff;
     padding: 20px 0;
     text-align: center;
 }
 
 header h1 {
+    top: 20px;
+    color: #efefde;
+    font-size: 24px;
+    font-weight: bold;
     font-size: 24px;
 }
 
 .about-button {
+
     position: absolute;
+    align-items: right;
     top: 20px;
-    right: 120px;
+    right: 210px;
     text-decoration: none;
     background-color: #3e4156;
-    color: yellow;
+    color: #fff;
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
-    font-size: 16px;
-	margin-right: 35px;
+    font-size: 17px;
 }
 
 .products-button {
-    margin-left: 590px;
-}
-
-.products-button:last-child {
     position: absolute;
-    top: 46px;
-    margin-right: 200;
-    margin-top: -26px;
+    align-items: right;
+    top: 20px;
+    right: 50px;
     text-decoration: none;
     background-color: #3e4156;
-    color: yellow;
+    color: #fff;
     padding: 10px 20px;
     border: none;
-    border-radius: 1px;
-    font-size: 16px;
-    font-weight: normal;
+    border-radius: 5px;
+    font-size: 17px;
+}
+
+.border {
+    border: 1.5px solid transparent;
+}
+.border:hover {
+    border: 1.5px solid white;
 }
 
 .upload-form {
@@ -135,20 +142,13 @@ header h1 {
 }
 .bidnest-text {
     position: absolute;
-    top: 30px;
-    right: 1325px;
-    color: yellow;
+    top: 20px;
+    right: 1190px;
+    color: #efefde;
     font-size: 24px;
     font-weight: bold;
-	margin-right: 21%;
 }
 
-footer {
-    text-align: center;
-    background-color: #333;
-    color: #fff;
-    padding: 10px 0;
-}
 .base-price-input {
     display: flex;
     justify-content: space-between;
@@ -181,7 +181,7 @@ footer {
 }
 
 .divider {
-    border-top: 1px groove #0052CC;
+    border-top: 1px groove #1c6ae0;
 }
 .timer {
     display: flex;
@@ -206,4 +206,20 @@ footer {
 h1	{
 	margin-top: 7px;
 	color: yellow;
+}
+
+.foot-panel3 {
+    background-color: #333649;
+    color: white;
+    height: 80px;
+    font-size: 0.7rem;
+    text-align: center;
+}
+
+.pages {
+    padding-top: 25px;
+}
+
+.copyright {
+    padding-top: 5px;
 }
