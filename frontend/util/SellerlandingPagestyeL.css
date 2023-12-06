@@ -72,6 +72,22 @@ header h1 {
     font-size: 17px;
 }
 
+.products-button:last-child {
+    position: absolute;
+    top: 46px;
+    margin-right: 200;
+    margin-top: -26px;
+    /* Adjust as needed */
+    text-decoration: none;
+    background-color: #3e4156;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 1px;
+    font-size: 16px;
+    font-weight: normal;
+}
+
 .border {
     border: 1.5px solid transparent;
 }
