@@ -196,12 +196,9 @@ router.get('/search', async(req,res) =>{                                        
 })
 
 router.get('/getitems', async(req,res)=>{                                                     // send data to frontend
-    router.get('/getitems', async(req,res)=>{                                                     
-		const search = req.session.searchdata;
-		const products = await sell.find({ name: new RegExp(search, 'i') });
-		res.json(products);
-	})
+    const Product=await sell.find()
+    console.log(Product)
+    res.json(Product)
 })
-
 
 export default router

@@ -45,4 +45,4 @@ function redirect(){
 }).then(result=>console.log(result))
 }
 
-document.getElementById('search-button').addEventListener('click', redirect)
+document.getElementById("search-button").addEventListener('click', redirect)

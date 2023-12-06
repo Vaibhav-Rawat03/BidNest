@@ -1,34 +1,27 @@
-var products = [
-	{
-	  name: 'Product 1',
-	  image: 'https://via.placeholder.com/150',
-	},
-	{
-	  name: 'Product 2',
-	  image: 'https://via.placeholder.com/150',
-	},
-	{
-	  name: 'Product 3',
-	  image: 'https://via.placeholder.com/150',
-	},
-	{
-	  name: 'Product 4',
-	  image: 'https://via.placeholder.com/150',
-	},
-	{
-	  name: 'Product 5',
-	  image: 'https://via.placeholder.com/150',
-	},
-  ];
-  
- 
- 
-  window.onload = function() {
-		var productList = document.getElementById('product-list');
+var prod;
+window.onload = async function() {
+	fetch("/getitems")
+    .then(response => {
+        response.json().then(result => {
+
+			// console.log(result);
+            const prod = result;
+
+			// console.log(JSON.stringify(prod))
+            // Further processing based on prod
+			for (var key in prod) {
+				if (prod.hasOwnProperty(key)) {
+				  console.log(key + ': ' + prod[key]);
+				}
+			  }
+            // Call a function for additional processing
+            processProducts(prod);
+			products = prod;
+			var productList = document.getElementById('product-list');
 		var modal = document.getElementById('myModal');
 		var modalDetails = document.getElementById('modal-details');
 		var span = document.getElementsByClassName('close')[0];
-		products.forEach(function(product, index) {
+		products.forEach(function(items, index) {
 			var productCard = document.createElement('div');
 			productCard.className = 'product-card';
 
@@ -106,7 +99,15 @@ var products = [
 				modal.style.display = 'none';
 			}
 		}
-	};
+	});
+        })
+    }
+    .catch(error => console.error('Error fetching products:', error))
+
+  
+		
+
+
 
 	function mySearch() {
 		var input, filter, cards, cardContainer, h2, title, i;
