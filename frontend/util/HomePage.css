@@ -129,18 +129,18 @@ body {
     justify-content: space-evenly;
 }
 
-.Contact-Us{
+/* .Contact-Us{
     height: 40px;
     background-color: #41445d;
     display: flex;
     color: white;
     align-items: center;
     justify-content: space-evenly;
-}
+} */
 
-#contactBtn:hover {
+/* #contactBtn:hover {
     background-color:#41445d;
-}
+} */
 
 /*product section*/
 .product-section {
@@ -188,9 +188,7 @@ footer {
     font-size: 0.85rem;
     cursor: pointer;
 }
-#TopTobackBtn:hover {
-    background-color: #41445d;
-}
+
 
 .foot-panel2 {
     background-color: #333649;
