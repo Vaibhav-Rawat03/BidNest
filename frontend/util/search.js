@@ -10,17 +10,15 @@ fetch('/getitems')
     data.forEach(product => {
       // Create a container for each product
       const productContainer = document.createElement('div');
-      productContainer.className = 'product-container'; // You may want to define a CSS class for styling
+      productContainer.className = 'product-container';                                                       // Define CSS for this class
 
       // Create an image element
       const imgElement = document.createElement('img');
       imgElement.src = `data:image/jpeg;base64,${product.image}`;
       imgElement.alt = product.productname;
 
-      // Append the image element to the product container
       productContainer.appendChild(imgElement);
 
-      // Create and append other elements (e.g., name, description) as needed
       const nameElement = document.createElement('h3');
       nameElement.textContent = product.productname;
       productContainer.appendChild(nameElement);
@@ -29,14 +27,22 @@ fetch('/getitems')
       descriptionElement.textContent = product.description;
       productContainer.appendChild(descriptionElement);
 
+      const minprice=document.createElement('p');
+      minprice.textContent=`INR: ${product.minprice}`;
+      productContainer.appendChild(minprice);
+
+      const Time=document.createElement('p');
+      Time.textContent=`Time: ${product.hours} : ${product.minutes}`;
+      productContainer.appendChild(Time);
+
       // Append the product container to the main image container
       imageContainer.appendChild(productContainer);
     });
   })
   .catch(error => console.error('Error fetching data:', error));
 
-// Function to dynamically render products based on the prod array
-function renderProducts(prod) {
+
+function renderProducts(prod) {                                               //fn to create prod cards based on result from backend
     var productList = document.getElementById('product-list');
 
     for (var index = 0; index < prod.length; index++) {
@@ -48,8 +54,8 @@ function renderProducts(prod) {
         var container = document.createElement('div');
         container.className = 'container';
 
-        // Convert Buffer to data URL and create an object URL
-        var imageBlob = new Blob([product.image.data], { type: 'image/jpeg' }); // Assuming the image type is JPEG
+                                                                                    // Convert Buffer to data URL and create an object URL
+        var imageBlob = new Blob([product.image.data], { type: 'image/jpeg' });                // only works for jpeg
         var imageUrl = URL.createObjectURL(imageBlob);
 
         var imageCap = document.createElement('img');
@@ -67,35 +73,8 @@ function renderProducts(prod) {
         productCard.querySelector('.details').addEventListener('click', createDetailsHandler(product));
         productCard.querySelector('.bid').addEventListener('click', createBidHandler(product));
 
-		console.log(product.image); // Check if it's a Buffer
-console.log(imageBlob); // Check if the Blob is being created correctly
-console.log(imageUrl); // Check if the URL is being created correctly
-console.log(imageCap.src); // Check the final image source
-console.log(product.image); // Check if it's a Buffer
-console.log(imageBlob); // Check if the Blob is being created correctly
-console.log(imageUrl); // Check if the URL is being created correctly
-console.log(imageCap.src); // Check the final image source
-
     }
 }
 
-// Sample prod array (empty initially, will be dynamically populated)
-let prod = [];
+let prod = [];                                                               //empty array will be populated khudse
 
-function createDetailsHandler(product) {
-    return function () {
-        // Modify this function to handle the details button click
-        // Use the 'product' object to populate the modal
-        // ...
-
-        // Show the modal
-        modal.style.display = 'block';
-    };
-}
-
-function createBidHandler(product) {
-    return function () {
-        // Modify this function to handle the bid button click
-        // ...
-    };
-}
