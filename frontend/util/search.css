@@ -1,33 +1,76 @@
+/* General page styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 70px;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+/* Style for the search container */
+.Search {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    width: 30%;
+    background-color: #ddd;
+    padding: 10px;
+    border-radius: 5px;
+	margin: 70px 0px 0px -400px
+}
+
+.search-icon {
+    color: #888;
+    min-width: 50px;
+    text-align: center;
+}
+
+.form-control {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    width: 86%; /* Reduce width */
+    margin-right: 10px;
+}
+
+.rounded-btn {
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 5px;
+    background-color: #4CAF50;
+    cursor: pointer;
+	margin-top: 70px;
+	margin-left: 10px;
+}
+
 /* Style for the product cards container */
 #product-list {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    padding: 20px;
 }
 
 /* Style for the product cards */
 .product-card {
     background-color: white;
+    border: 1px solid #ccc; /* Add border */
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    margin: 20px;
+    margin: 20px; /* Increase space between cards */
     padding: 20px;
     text-align: center;
-    flex: 1 0 18%; /* This will make the cards flexible and ensure there are 5 cards per row */
-    max-width: 18%; /* This will ensure the width of the cards does not exceed 18% of the container */
+    flex: 1 0 18%;
+    max-width: 18%;
 }
-
-.product-card img {
-    width: 10%; /* Decrease the image size */
-    height: auto;
-}
-
-.product-card .product-name {
-    font-size: 1.2em;
-    margin-top: 20px;
-}
-
-.product-card .product-price {
-    color: #888;
-    margin-top: 10px;
+.header	{
+	margin-left: 50px;
 }
