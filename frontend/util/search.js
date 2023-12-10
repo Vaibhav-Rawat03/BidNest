@@ -10,7 +10,7 @@ fetch('/getitems')
     data.forEach(product => {
       // Create a container for each product
       const productContainer = document.createElement('div');
-      productContainer.className = 'product-container';                                                       // Define CSS for this class
+      productContainer.className = 'product-container';
 
       // Create an image element
       const imgElement = document.createElement('img');
@@ -147,29 +147,26 @@ closeButton.onclick = function() {
     modal.style.display = "none";
 }
 
-var searchInput = document.getElementById('search-input');
-searchInput.addEventListener('input', function() {
-    searchProducts(searchInput.value);
-});
+var modal = document.getElementById('myModal');
 
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
 
-function searchProducts(searchTerm) {
-    // Convert the search term to lowercase for case-insensitive search
-    searchTerm = searchTerm.toLowerCase();
-
-    // Filter the prod array
-    var filteredProducts = prod.filter(function(product) {
-        // Convert the product name to lowercase for case-insensitive search
-        var productName = product.productname.toLowerCase();
-
-        // Check if the product name includes the search term
-        return productName.includes(searchTerm);
-    });
-
-    // Clear the product list
-    var productList = document.getElementById('product-list');
-    productList.innerHTML = '';
-
-    // Render the filtered products
-    renderProducts(filteredProducts);
+function mySearch() {
+    var input, filter, cards, cardContainer, title, i;
+    input = document.getElementById("search-box");
+    filter = input.value.toUpperCase();
+    cardContainer = document.getElementById("product-list");
+    cards = cardContainer.getElementsByClassName("container");
+    for (i = 0; i < cards.length; i++) {
+        title = cards[i].querySelector(".product-name");
+        if (title.innerText.toUpperCase().indexOf(filter) > -1) {
+            cards[i].style.display = "";
+        } else {
+            cards[i].style.display = "none";
+        }
+    }
 }
