@@ -7,14 +7,13 @@
     <link rel="stylesheet" href="./util/HomePage.css">
 </head>
 <body>
-
     <header>
         <div class="navbar">
             <div class="nav-logo">
                 <div class="logo"></div>
             </div> 
             <div class="bitnest-text">BidNest</div>
-            <a href="Signin.html" class="login-button border">Login</a>
+            <a href="Signin.html" class="login-button border">Logout</a>
             <a href="About.html" class="about-button border">About Us</a>
         </div>
 
@@ -25,12 +24,11 @@
                 All             
             </div>
 
-            <div class="Seller border">
-                <a href="Sellerlandingpage.html" style="color: #ffffff;">Seller</a>
+            <div class="Seller-border">
+                <a href="./Sellerlandingpage.html" style="text-decoration: none; color: #ffffff;">Seller</a>
             </div>
             <div class="My-Cart border">My-Cart</div>
-            <div class="Contact-Us border">
-                <button onclick="scrollToContact()" id="TopTobackBtn" title="Contact Us">Contact Us</button>
+                <button type="button" onclick="scrollToContact()" id="TopTobackBtn" style="background-color: #41445d; border: #41445d; color: #ffffff; cursor: pointer;">Contact Us</button>
             </div>
         </div>
 
@@ -40,9 +38,13 @@
         <h1>Welcome to Our Website</h1>
     
         <div class="search-products">
-            <input placeholder="Search the products here..." class="search-input">
+            <input placeholder="Search the products here..." class="search-input" id="search-input">
             <div class="search-icons">
+<<<<<<< HEAD
                 <button type="button" id="search-button">
+=======
+                <button type="button" class="search-button" id="search-button">
+>>>>>>> vaibhav
                     <i class="fa-sharp fa-solid fa-magnifying-glass" style="color: #ffffff;"></i>
                 </button>
             </div>
@@ -61,6 +63,8 @@
                 <div class="timer">
                     Time left: <span id="countdown">00:00:00</span>
                 </div>
+				<button class=" details-btn" >View Details</button>
+
             </div>
         </div>
 
@@ -72,6 +76,8 @@
                 <div class="timer">
                     Time left: <span id="countdown">00:00:00</span>
                 </div>
+				<button class=" details-btn" >View Details</button>
+
             </div>
         </div>
 
@@ -83,6 +89,8 @@
                 <div class="timer">
                     Time left: <span id="countdown">00:00:00</span>
                 </div>
+				<button class=" details-btn" >View Details</button>
+
             </div>
         </div>
 
@@ -94,6 +102,8 @@
                 <div class="timer">
                     Time left: <span id="countdown">00:00:00</span>
                 </div>
+				<button class=" details-btn" >View Details</button>
+
             </div>
         </div>
 
@@ -105,6 +115,8 @@
                 <div class="timer">
                     Time left: <span id="countdown">00:00:00</span>
                 </div>
+				<button class=" details-btn" >View Details</button>
+
             </div>
         </div>
 
@@ -116,6 +128,8 @@
                 <div class="timer">
                     Time left: <span id="countdown">00:00:00</span>
                 </div>
+				<button class=" details-btn" >View Details</button>
+
             </div>
         </div>
 
@@ -127,6 +141,8 @@
                 <div class="timer">
                     Time left: <span id="countdown">00:00:00</span>
                 </div>
+				<button class=" details-btn" >View Details</button>
+
             </div>
         </div>
 
@@ -138,6 +154,8 @@
                 <div class="timer">
                     Time left: <span id="countdown">00:00:00</span>
                 </div>
+				<button class=" details-btn" >View Details</button>
+
             </div>
         </div>
 
@@ -149,6 +167,8 @@
                 <div class="timer">
                     Time left: <span id="countdown">00:00:00</span>
                 </div>
+				<button class=" details-btn" >View Details</button>
+
             </div>
         </div>
 
@@ -160,6 +180,8 @@
                 <div class="timer">
                     Time left: <span id="countdown">00:00:00</span>
                 </div>
+				<button class=" details-btn" >View Details</button>
+
             </div>
         </div>
 
@@ -171,6 +193,8 @@
                 <div class="timer">
                     Time left: <span id="countdown">00:00:00</span>
                 </div>
+				<button class="details-btn">View Details</button>
+
             </div>
         </div>
 
@@ -182,6 +206,8 @@
                 <div class="timer">
                     Time left: <span id="countdown">00:00:00</span>
                 </div>
+				<button class="details-btn">View Details</button>
+
             </div>
         </div>
     </div>
@@ -194,15 +220,15 @@
         <div class="foot-panel2">
             <ul>
                 <p>Get to Know Us</p>
-                <a href="About.html">About BidNest</a>
-                <a href="FAQ.html">FAQ</a>
+                <a href="About.html" style="text-decoration: none;">About BidNest</a>
+                <a href="FAQ.html" style="text-decoration: none;">FAQ</a>
                 <a>My-Cart</a>
             </ul>
             <ul>
                 <p>Useful Links</p>
-                <a href="HomePage.html">Home</a>
-                <a href="Signin.html">Login</a>
-                <a href="Sellerlandingpage.html">Seller</a>
+                <a href="HomePage.html" style="text-decoration: none;">Home</a>
+                <a href="Signin.html" style="text-decoration: none;">Login</a>
+                <a href="Sellerlandingpage.html" style="text-decoration: none;">Seller</a>
             </ul>
             <ul>
                 <p>Contact Us</p>
@@ -224,6 +250,16 @@
                 © Copyright 2023 India - All Rights Reserved
             </div>
         </div>
+
+		<div id="myModal" class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2 id="modal-title"></h2>
+				<img id="modal-img" src="" alt="Product Image">
+				<p id="modal-price"></p>
+				<p id="modal-description"></p>
+			</div>
+		</div>
         <script src="util/HomePage.js"></script>
     </footer>
 </body>

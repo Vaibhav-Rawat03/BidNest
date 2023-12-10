@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="./util/HomePage.css">
 </head>
 <body>
-
     <header>
         <div class="navbar">
             <div class="nav-logo">
@@ -23,12 +24,11 @@
                 All             
             </div>
 
-            <div class="Seller border">
-                <a href="Sellerlandingpage.html" style="color: #ffffff;">Seller</a>
+            <div class="Seller-border">
+                <a href="./Sellerlandingpage.html" style="text-decoration: none; color: #ffffff;">Seller</a>
             </div>
             <div class="My-Cart border">My-Cart</div>
-            <div class="Contact-Us border">
-                <button onclick="scrollToContact()" id="TopTobackBtn" title="Contact Us">Contact Us</button>
+                <button type="button" onclick="scrollToContact()" id="TopTobackBtn" style="background-color: #41445d; border: #41445d; color: #ffffff; cursor: pointer;">Contact Us</button>
             </div>
         </div>
 
@@ -59,6 +59,8 @@
                 <div class="timer">
                     Time left: <span id="countdown">00:00:00</span>
                 </div>
+				<button class=" details-btn" >View Details</button>
+
             </div>
         </div>
 
@@ -70,6 +72,8 @@
                 <div class="timer">
                     Time left: <span id="countdown">00:00:00</span>
                 </div>
+				<button class=" details-btn" >View Details</button>
+
             </div>
         </div>
 
@@ -81,6 +85,8 @@
                 <div class="timer">
                     Time left: <span id="countdown">00:00:00</span>
                 </div>
+				<button class=" details-btn" >View Details</button>
+
             </div>
         </div>
 
@@ -92,6 +98,8 @@
                 <div class="timer">
                     Time left: <span id="countdown">00:00:00</span>
                 </div>
+				<button class=" details-btn" >View Details</button>
+
             </div>
         </div>
 
@@ -103,6 +111,8 @@
                 <div class="timer">
                     Time left: <span id="countdown">00:00:00</span>
                 </div>
+				<button class=" details-btn" >View Details</button>
+
             </div>
         </div>
 
@@ -114,6 +124,8 @@
                 <div class="timer">
                     Time left: <span id="countdown">00:00:00</span>
                 </div>
+				<button class=" details-btn" >View Details</button>
+
             </div>
         </div>
 
@@ -125,6 +137,8 @@
                 <div class="timer">
                     Time left: <span id="countdown">00:00:00</span>
                 </div>
+				<button class=" details-btn" >View Details</button>
+
             </div>
         </div>
 
@@ -136,6 +150,8 @@
                 <div class="timer">
                     Time left: <span id="countdown">00:00:00</span>
                 </div>
+				<button class=" details-btn" >View Details</button>
+
             </div>
         </div>
 
@@ -147,6 +163,8 @@
                 <div class="timer">
                     Time left: <span id="countdown">00:00:00</span>
                 </div>
+				<button class=" details-btn" >View Details</button>
+
             </div>
         </div>
 
@@ -158,6 +176,8 @@
                 <div class="timer">
                     Time left: <span id="countdown">00:00:00</span>
                 </div>
+				<button class=" details-btn" >View Details</button>
+
             </div>
         </div>
 
@@ -169,6 +189,8 @@
                 <div class="timer">
                     Time left: <span id="countdown">00:00:00</span>
                 </div>
+				<button class="details-btn">View Details</button>
+
             </div>
         </div>
 
@@ -180,6 +202,8 @@
                 <div class="timer">
                     Time left: <span id="countdown">00:00:00</span>
                 </div>
+				<button class="details-btn">View Details</button>
+
             </div>
         </div>
     </div>
@@ -192,15 +216,15 @@
         <div class="foot-panel2">
             <ul>
                 <p>Get to Know Us</p>
-                <a href="About.html">About BidNest</a>
-                <a href="FAQ.html">FAQ</a>
+                <a href="About.html" style="text-decoration: none;">About BidNest</a>
+                <a href="FAQ.html" style="text-decoration: none;">FAQ</a>
                 <a>My-Cart</a>
             </ul>
             <ul>
                 <p>Useful Links</p>
-                <a href="HomePage.html">Home</a>
-                <a href="Signin.html">Login</a>
-                <a href="Sellerlandingpage.html">Seller</a>
+                <a href="HomePage.html" style="text-decoration: none;">Home</a>
+                <a href="Signin.html" style="text-decoration: none;">Login</a>
+                <a href="Sellerlandingpage.html" style="text-decoration: none;">Seller</a>
             </ul>
             <ul>
                 <p>Contact Us</p>
@@ -222,6 +246,16 @@
                 © Copyright 2023 India - All Rights Reserved
             </div>
         </div>
+
+		<div id="myModal" class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2 id="modal-title"></h2>
+				<img id="modal-img" src="" alt="Product Image">
+				<p id="modal-price"></p>
+				<p id="modal-description"></p>
+			</div>
+		</div>
         <script src="util/HomePage.js"></script>
     </footer>
 </body>
