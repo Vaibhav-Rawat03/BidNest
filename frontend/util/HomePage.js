@@ -1,6 +1,13 @@
-document.body.addEventListener('click', function(event) {
-    window.location.href = 'Signin.html'; // Replace 'Signin.html' with your desired endpoint
-});
+// document.body.addEventListener('click', function(event) {
+//     window.location.href = 'Signin.html'; // Replace 'Signin.html' with your desired endpoint
+// });
+
+
+if (window.location.href.includes('HomePage.html')) {
+    document.body.addEventListener('click', function(event) {
+        window.location.href = 'Signin.html'; // Replace 'Signin.html' with your desired endpoint
+    });
+}
 
 
 var mybutton = document.getElementById("backToTopBtn");
