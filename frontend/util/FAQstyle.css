@@ -1,0 +1,231 @@
+body {
+    font-family: 'Work Sans', sans-serif;
+    background: linear-gradient(hsl(206, 68%, 91%) 0%, #aed7ff 100%); 
+    background-attachment: fixed; 
+    background-position: 100% center; 
+    background-position: center bottom 15%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ .navbar {
+    height: 70px;
+    background-color: #333649;
+    color: white;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center; 
+    padding: 2px 4px;
+}
+
+.nav-logo {
+    height: 60px;
+    width: 100px;
+}
+
+.logo {
+    background-image: url("BidNest.png");
+    height: 55px;
+    width: 55px;
+    background-size: cover;
+    position: absolute;
+    top: 8px;
+    left: 20px;
+}
+
+.border {
+    border: 1.5px solid transparent;
+}
+.border:hover {
+    border: 1.5px solid white;
+}
+
+.bitnest-text {
+    position: absolute;
+    top: 20px;
+    right: 1190px;
+    color: #efefde;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.login-button {
+    position: absolute;
+    align-items: right;
+    top: 20px;
+    right: 50px;
+    text-decoration: none;
+    background-color: #3e4156;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 17px;
+}
+
+.about-button {
+    position: absolute;
+    align-items: right;
+    top: 20px;
+    right: 210px;
+    text-decoration: none;
+    background-color: #3e4156;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 17px;
+}
+
+.container {
+    text-align: center;
+    color: #333;
+    font-size: 21px;
+    margin-top: 70px;
+    margin-bottom: 15px;
+}
+
+.form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 650px;
+    height: 40px;
+    border-radius: 5px;
+    margin: 0 auto;
+  }
+  
+  .text-input {
+    padding: 10px;
+    font-size: 18px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    margin-right: 10px; /* Adjust spacing between input and button */
+  }
+  
+  .submit-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #41445d;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  .submit-button:hover {
+    background-color: #6d7092;
+  }
+
+.panel1 {
+    height: 40px;
+    background-color: #41445d;
+    display: flex;
+    color: white;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.faq-heading{
+    border-bottom: #777;
+    padding: 20px 60px;
+    text-align:start;
+}
+.faq-container{
+display: flex;
+justify-content: center;
+flex-direction: column;
+margin-bottom: 50px;
+
+}
+.hr-line{
+  width: 60%;
+  margin: auto;
+  
+}
+/* Style the buttons that are used to open and close the faq-page body */
+.faq-page {
+    color: #444;
+    cursor: pointer;
+    padding: 30px 20px;
+    width: 60%;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+    margin: auto;
+
+}
+.faq-body{
+    margin: auto;
+   width: 60%; 
+   padding: auto;
+   
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.active,
+.faq-page:hover {
+    background-color: #d9e9f9;
+}
+
+/* Style the faq-page panel. Note: hidden by default */
+.faq-body {
+    padding: 0 20px;
+    background-color: #d9e9f9;
+    display: none;
+    overflow: hidden;
+}
+
+.faq-page:after {
+    content: '\02795';     /* Unicode character for "plus" sign (+) */
+    font-size: 13px;
+    color: #777;
+    float: right;
+    margin-left: 5px;
+}
+
+.active:after {
+    content: "\2796";      /* Unicode character for "minus" sign (-) */
+}
+
+/* Footer */
+
+footer {
+    margin-top: 15px;
+}
+
+.foot-panel2 {
+    background-color: #333649;
+    color: white;
+    height: 150px;
+    display: flex;
+    justify-content: space-evenly ;
+}
+
+ul {
+    margin-top: 10px;
+}
+ul a { 
+    display: block;
+    font-size: 0.85rem;
+    margin-top: 10px;
+    color: #dddddd;
+}
+
+.foot-panel3 {
+    background-color: #333649;
+    color: white;
+    height: 80px;
+    font-size: 0.7rem;
+    text-align: center;
+}
+
+.pages {
+    padding-top: 25px;
+}
+
+.copyright {
+    padding-top: 5px;
+}
