@@ -223,6 +223,7 @@ ul a {
     padding-top: 5px;
 }
 .details-btn	{
+	display: none;
 	background-color: green;
 	color: white;
 	border: none;
@@ -283,4 +284,11 @@ box {
     display: flex;
     flex-direction: column;
     height: 100%; /* Make sure the box takes up the full height of the parent */
+}
+.panel-border	{
+	text-decoration: none; 
+	background-color: #41445d;
+	color: #ffffff;
+	border: #41445d;
+
 }

@@ -189,20 +189,7 @@ router.post('/search1', (req,res) =>{                                           
     res.send("Looks good")
 })
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-router.get('/search', async(req,res) =>{                                                      //new search page needs to be added here
-    res.sendFile(path.join(__dirname,'../../frontend/products.html')) 
-    
-    
-})
 
-router.get('/getitems', async(req,res)=>{                                                     // send data to frontend
-    const Product=await sell.find()
-    console.log(Product)
-    res.json(Product)
-})
-=======
 router.get('/search', async(req,res) =>{          
     const search=req.body.search
     req.session.searchdata=search                                            //new search page needs to be added here
@@ -212,7 +199,7 @@ router.get('/search', async(req,res) =>{
     // res.json(Product)
     
 })
-=======
+
 router.get('/search', async(req,res) =>{          
     const search=req.body.search
     req.session.searchdata=search                                            //new search page needs to be added here
@@ -254,7 +241,7 @@ router.get('/getitems', async (req, res) => {
     }
   });
 
->>>>>>> vaibhav
+
 
 // router.get('/getitems', async(req,res)=>{                                                     // send data to frontend
 //     const Product=await sell.find({ fieldName: req.session.searchdata })
@@ -287,6 +274,6 @@ router.get('/getitems', async (req, res) => {
     }
   });
 
->>>>>>> vaibhav
+
 
 export default router
