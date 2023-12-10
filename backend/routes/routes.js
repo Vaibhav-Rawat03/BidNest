@@ -190,8 +190,7 @@ router.post('/search1', (req,res) =>{                                           
 })
 
 router.get('/search', async(req,res) =>{          
-    const search=req.body.search
-    req.session.searchdata=search                                            //new search page needs to be added here
+ //new search page needs to be added here
     res.sendFile(path.join(__dirname,'../../frontend/search.html')) 
     // const Product=await sell.find( )
     // console.log(Product)
