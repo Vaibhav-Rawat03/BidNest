@@ -1,3 +1,8 @@
+document.body.addEventListener('click', function(event) {
+    window.location.href = 'Signin.html'; // Replace 'Signin.html' with your desired endpoint
+});
+
+
 var mybutton = document.getElementById("backToTopBtn");
 
 // When the user scrolls down 20px from the top of the document, show the button
@@ -142,6 +147,3 @@ for (var i = 0; i < btns.length; i++) {
     });
 }
 
-document.body.addEventListener('click', function(event) {
-    window.location.href = 'Signin.html'; // Change this to your desired endpoint
-});
