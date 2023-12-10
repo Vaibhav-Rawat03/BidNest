@@ -19,21 +19,34 @@ fetch('/getitems')
 
       productContainer.appendChild(imgElement);
 
+	  const productDetails = document.createElement('div');
+      productDetails.className = 'product-details';
+	  productContainer.appendChild(productDetails)
+
       const nameElement = document.createElement('h3');
       nameElement.textContent = product.productname;
-      productContainer.appendChild(nameElement);
+      productDetails.appendChild(nameElement);
 
       const descriptionElement = document.createElement('p');
       descriptionElement.textContent = product.description;
-      productContainer.appendChild(descriptionElement);
+      productDetails.appendChild(descriptionElement);
 
       const minprice=document.createElement('p');
       minprice.textContent=`INR: ${product.minprice}`;
-      productContainer.appendChild(minprice);
+      productDetails.appendChild(minprice);
 
       const Time=document.createElement('p');
       Time.textContent=`Time: ${product.hours} : ${product.minutes}`;
-      productContainer.appendChild(Time);
+      productDetails.appendChild(Time);
+
+	  const detailsButton = document.createElement('button');
+	  detailsButton.className = 'details-btn';
+	detailsButton.textContent = `View Details`;
+	detailsButton.onclick = function() {
+    populateModal(product);
+    modal.style.display = "block";
+};
+productContainer.appendChild(detailsButton);
 
       // Append the product container to the main image container
       imageContainer.appendChild(productContainer);
@@ -68,16 +81,20 @@ fetch('/getitems')
         var detailsButton = document.createElement('button');
         detailsButton.className = 'details-btn';
         detailsButton.textContent = 'View Details';
-        detailsButton.onclick = function() {
-            populateModal(product);
-            modal.style.display = "block";
-        };
+        detailsButton.onclick = (function(product) {
+            return function() {
+                populateModal(product);
+                modal.style.display = "block";
+            };
+        })(product);
+        container.appendChild(detailsButton); // Append the button to the container
+
         productCard.appendChild(container);
-        productCard.appendChild(detailsButton); // Append the button to the product card, not the container
 
         productList.appendChild(productCard);
     }
 }
+
 
 var modal = document.getElementById('myModal');
 
@@ -128,4 +145,31 @@ var closeButton = document.getElementsByClassName("close")[0];
 // When the user clicks on the close button, close the modal
 closeButton.onclick = function() {
     modal.style.display = "none";
+}
+
+var searchInput = document.getElementById('search-input');
+searchInput.addEventListener('input', function() {
+    searchProducts(searchInput.value);
+});
+
+
+function searchProducts(searchTerm) {
+    // Convert the search term to lowercase for case-insensitive search
+    searchTerm = searchTerm.toLowerCase();
+
+    // Filter the prod array
+    var filteredProducts = prod.filter(function(product) {
+        // Convert the product name to lowercase for case-insensitive search
+        var productName = product.productname.toLowerCase();
+
+        // Check if the product name includes the search term
+        return productName.includes(searchTerm);
+    });
+
+    // Clear the product list
+    var productList = document.getElementById('product-list');
+    productList.innerHTML = '';
+
+    // Render the filtered products
+    renderProducts(filteredProducts);
 }

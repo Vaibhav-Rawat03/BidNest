@@ -17,19 +17,15 @@
             <div class="search-container">
                 <i class="fa fa-search search-icon"></i>
                 <input type="text" name="search" id="search-box" class="form-control" placeholder="Search here"
-                    onkeyup="mySearch()" required />
+                    onkeyup="searchProducts()" required />
             </div>
-            <button type="button" class="rounded-btn">Filter</button>
+            <button type="button" class="rounded-btn" onclick="searchProducts()">Search</button>
 		</div>
 		<div id="imageContainer"></div>
     <div id="product-list">
         <!-- Products will be populated here -->
-		<button class="details-btn" onclick="populateModal()">View Details</button>
     </div>
-	<!-- The Modal -->
 <div id="myModal" class="modal">
-
-	<!-- Modal content -->
 	<div class="modal-content">
 	  <div class="modal-header">
 		<span class="close">&times;</span>
