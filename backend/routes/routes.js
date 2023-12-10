@@ -190,6 +190,7 @@ router.post('/search1', (req,res) =>{                                           
 })
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 router.get('/search', async(req,res) =>{                                                      //new search page needs to be added here
     res.sendFile(path.join(__dirname,'../../frontend/products.html')) 
     
@@ -211,6 +212,49 @@ router.get('/search', async(req,res) =>{
     // res.json(Product)
     
 })
+=======
+router.get('/search', async(req,res) =>{          
+    const search=req.body.search
+    req.session.searchdata=search                                            //new search page needs to be added here
+    res.sendFile(path.join(__dirname,'../../frontend/search.html')) 
+    // const Product=await sell.find( )
+    // console.log(Product)
+    // res.json(Product)
+    
+})
+
+// router.get('/getitems', async(req,res)=>{                                                     // send data to frontend
+//     const Product=await sell.find({ fieldName: req.session.searchdata })
+//     console.log(Product)
+//     res.json(Product)
+// })
+router.get('/getitems', async (req, res) => {
+    try {
+      // Fetch data from the database
+      const products = await sell.find();
+  
+      // Convert buffer to base64 for each product and include all fields in the response
+      const productsWithBase64 = products.map(product => {
+        const base64Image = Buffer.from(product.image.buffer, 'binary').toString('base64');
+        return {
+          email: product.email,
+          productname: product.productname,
+          description: product.description,
+          hours: product.hours,
+          minutes: product.minutes,
+          minprice: product.minprice,
+          image: base64Image,
+        };
+      });
+      console.log(productsWithBase64)
+      res.json(productsWithBase64);
+    } catch (error) {
+      console.error('Error fetching items:', error);
+      res.status(500).send('Internal Server Error');
+    }
+  });
+
+>>>>>>> vaibhav
 
 // router.get('/getitems', async(req,res)=>{                                                     // send data to frontend
 //     const Product=await sell.find({ fieldName: req.session.searchdata })

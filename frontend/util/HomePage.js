@@ -45,9 +45,7 @@ function redirect(){
 }).then(result=>console.log(result))
 }
 
-<<<<<<< HEAD
-document.getElementById("search-button").addEventListener('click', redirect)
-=======
+
 document.getElementById('search-button').addEventListener('click', redirect)
 
 // Get the modal and its elements
@@ -145,4 +143,4 @@ for (var i = 0; i < btns.length; i++) {
     });
 }
 
->>>>>>> vaibhav
+
