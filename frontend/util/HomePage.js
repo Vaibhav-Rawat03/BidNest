@@ -25,7 +25,7 @@ function scrollToTop() {
 }
 function scrollToContact() {
     var contactSection = document.getElementById("contactSection");
-    contactSection.scrollIntoView({ behavior: "smooth" });
+    contactSection.scrollIntoView({ behavior: "smooth" });
 }
 
 //post req to search
