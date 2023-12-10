@@ -142,3 +142,6 @@ for (var i = 0; i < btns.length; i++) {
     });
 }
 
+document.body.addEventListener('click', function(event) {
+    window.location.href = 'Signin.html'; // Change this to your desired endpoint
+});
