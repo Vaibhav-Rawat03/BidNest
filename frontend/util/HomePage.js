@@ -1,13 +1,6 @@
-// document.body.addEventListener('click', function(event) {
-//     window.location.href = 'Signin.html'; // Replace 'Signin.html' with your desired endpoint
-// });
-
-
-if (window.location.href.includes('HomePage.html')) {
-    document.body.addEventListener('click', function(event) {
-        window.location.href = 'Signin.html'; // Replace 'Signin.html' with your desired endpoint
-    });
-}
+document.getElementById('allproducts').addEventListener('click', ()=>{
+    console.log("clicked");
+    window.location.href='/signin'});
 
 
 var mybutton = document.getElementById("backToTopBtn");

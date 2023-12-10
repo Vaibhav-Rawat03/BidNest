@@ -54,9 +54,9 @@
 
     </div>
 
-        <div class="product-section">
+        <div class="product-section" id="allproducts">
             
-            <div class="box1 box">
+            <div class="box1 box" id="box1">
                 <div class="box-content">
                     <div class="box-img" style="background-image: url('./util/box_1.jpg');"></div>
                     <h2>Stellar Fantasy Set of 3 Stoneware Vase with T-Light Holders</h2>
@@ -229,6 +229,11 @@
             </div>
         </div>
         <script src="util/HomePage.js"></script>
+        <script>
+            document.getElementById('allproducts').addEventListener('click', ()=>{
+                console.log("clicked");
+                window.location.href='/signin'});
+        </script>
     </footer>
 </body>
 </html>
