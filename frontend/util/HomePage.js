@@ -1,3 +1,8 @@
+document.getElementById('allproducts').addEventListener('click', ()=>{
+    console.log("clicked");
+    window.location.href='/signin'});
+
+
 var mybutton = document.getElementById("backToTopBtn");
 
 // When the user scrolls down 20px from the top of the document, show the button
@@ -20,7 +25,7 @@ function scrollToTop() {
 }
 function scrollToContact() {
     var contactSection = document.getElementById("contactSection");
-    contactSection.scrollIntoView({ behavior: "smooth" });
+    contactSection.scrollIntoView({ behavior: "smooth" });
 }
 
 //post req to search

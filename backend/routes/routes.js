@@ -174,7 +174,7 @@ router.post('/authenticateseller', async(req,res) =>{                           
    }
 }
 })
-router.post('/ques', async(req,res)=>{
+router.post('/ques', async(req,res)=>{                                                                   //post req of FAQ page
     const saveques = new ques({
         email:req.session.email.email,
         ques:req.body.ques
@@ -201,47 +201,97 @@ router.get('/search', async(req,res) =>{
 })
 
 router.get('/search', async(req,res) =>{          
-    const search=req.body.search
-    req.session.searchdata=search                                            //new search page needs to be added here
-    res.sendFile(path.join(__dirname,'../../frontend/search.html')) 
-    // const Product=await sell.find( )
-    // console.log(Product)
-    // res.json(Product)
-    
+    res.sendFile(path.join(__dirname,'../../frontend/search.html'))                                          //serves search page
 })
 
-// router.get('/getitems', async(req,res)=>{                                                     // send data to frontend
-//     const Product=await sell.find({ fieldName: req.session.searchdata })
-//     console.log(Product)
-//     res.json(Product)
-// })
-router.get('/getitems', async (req, res) => {
-    try {
-      // Fetch data from the database
-      const products = await sell.find();
+// router.get('/getitems', async (req, res) => {
+//     try {
+//       // Fetch data from the database
+//       const products = await sell.find();
   
-      // Convert buffer to base64 for each product and include all fields in the response
-      const productsWithBase64 = products.map(product => {
-        const base64Image = Buffer.from(product.image.buffer, 'binary').toString('base64');
-        return {
-          email: product.email,
-          productname: product.productname,
-          description: product.description,
-          hours: product.hours,
-          minutes: product.minutes,
-          minprice: product.minprice,
-          image: base64Image,
-        };
+//       //convert image data to base64 and append other fields
+//       const productsWithBase64 = products.map(product => {
+//         const base64Image = Buffer.from(product.image.buffer, 'binary').toString('base64');
+//         return {
+//           email: product.email,
+//           productname: product.productname,
+//           description: product.description,
+//           hours: product.hours,
+//           minutes: product.minutes,
+//           minprice: product.minprice,
+//           image: base64Image,
+//         };
+//       });
+//       console.log(productsWithBase64)
+//       res.json(productsWithBase64);
+//     } catch (error) {
+//       console.error('Error fetching items:', error);
+//       res.status(500).send('Internal Server Error');
+//     }
+//   });
+
+const fetchData = async () => {
+  try {
+      const products = await sell.find();
+      const productsWithBase64 = products.map(product => {                                //convert image data to base64 and append other fields
+          const base64Image = Buffer.from(product.image.buffer, 'binary').toString('base64');
+          return {
+              email: product.email,
+              productname: product.productname,
+              description: product.description,
+              hours: product.hours,
+              minutes: product.minutes,
+              minprice: product.minprice,
+              image: base64Image,
+          };
       });
-      console.log(productsWithBase64)
-      res.json(productsWithBase64);
-    } catch (error) {
+      console.log(productsWithBase64);
+      return productsWithBase64;
+  } catch (error) {
       console.error('Error fetching items:', error);
+  }
+};
+
+//To fetch 1st time
+fetchData();
+
+const fetchDataInterval = setInterval(async () => {
+  try {
+      await fetchData();
+  } catch (error) {
+      console.error('Error fetching items:', error);
+  }
+}, 60000);
+
+router.get('/getitems', async (req, res) => {                                                        //fetch for search page
+  try {
+      // Fetch data and send the result as a response
+      const data = await fetchData();
+      res.json(data);
+  } catch (error) {
+      console.error('Error fetching items during request:', error);
       res.status(500).send('Internal Server Error');
+  }
+});
+  router.get('/logic', async (req, res) => {                                                         //bidding logic
+    try {
+        const newPrice = req.body.price;
+        const itemId = req.body.id;
+        const hour=req.body.hours;
+        const minute=req.body.minutes;
+
+        const updatedItem = await sell.findByIdAndUpdate(itemId, { minprice: newPrice }, { new: true });
+
+        if (!updatedItem) {
+            return res.status(404).json({ message: 'Item not found' });
+        }
+        updateTimer(itemId, hour, minute);
+        return res.status(200).json({ message: 'Price updated successfully', updatedItem });
+    } catch (error) {
+        console.error(error);
+        return res.status(500).send("Internal Server Error");
     }
-  });
-
-
+});
 
 // router.get('/getitems', async(req,res)=>{                                                     // send data to frontend
 //     const Product=await sell.find({ fieldName: req.session.searchdata })

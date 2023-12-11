@@ -171,28 +171,6 @@ img{
 
 /* Footer */
 
-footer {
-    margin-top: 15px;
-}
-
-.foot-panel2 {
-    background-color: #333649;
-    color: white;
-    height: 150px;
-    display: flex;
-    justify-content: space-evenly ;
-}
-
-ul {
-    margin-top: 10px;
-}
-ul a { 
-    display: block;
-    font-size: 0.85rem;
-    margin-top: 10px;
-    color: #dddddd;
-}
-
 .foot-panel3 {
     background-color: #333649;
     color: white;

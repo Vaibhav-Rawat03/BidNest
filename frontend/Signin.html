@@ -19,9 +19,9 @@
                     <label for="password">Password:</label>
                     <input type="password" id="password" name="password" placeholder="Your password">
 
-                    <button id='loginb' class="login" type="button">Log In as Buyer</button>
+                    <button id='loginb' class="login" type="button">Log In</button>
                     <br>
-                    <button id='logins' class="login" type="button">Log In as Seller</button>
+                    <!-- <button id='logins' class="login" type="button">Log In as Seller</button> -->
                 </form>
                 <!-- <div class="buttons">
                     <button class="new-user">Create New User</button>
@@ -34,39 +34,6 @@
     </div>
 
   <script>
-    function authenticateseller(){
-        const email =document.getElementById('email').value
-        const password =document.getElementById('password').value
-
-        if(email == "" || password == ""){
-            alert('Hacker bhay Hacker')
-            return
-        }
-        else{
-            const secure={
-                email:email,
-                password:password,
-            }
-
-            fetch('/authenticateseller', {
-                method:'POST',
-                headers:{
-                    'Content-Type':'application/json'
-                },
-                body:JSON.stringify(secure)
-            }).then(response =>{
-                if(response.status == 200){
-                window.location.href='/sell'
-            }
-            else{
-                response=>response.text()
-                alert("Wrong E-mail and/or password")
-                console.log("Wrong")
-            }
-        }).then(result=>console.log(result))
-        }
-    }
-
     function authenticatebuyer(){
         const email =document.getElementById('email').value
         const password =document.getElementById('password').value
@@ -89,7 +56,7 @@
                 body:JSON.stringify(secure)
             }).then(response =>{
                 if(response.status == 200){
-                window.location.href='/homebuyer'
+                window.location.href='/search'
             }
             else{
                 response=>response.text()
@@ -101,7 +68,6 @@
     }
 
     document.getElementById('loginb').addEventListener('click' , authenticatebuyer)
-    document.getElementById('logins').addEventListener('click' , authenticateseller)
   </script>
   </body>
 </html>

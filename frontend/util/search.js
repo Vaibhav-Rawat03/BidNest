@@ -160,6 +160,7 @@ closeButton.onclick = function() {
 }
 
 
+
 var modal = document.getElementById('myModal');
 
 window.onclick = function(event) {
@@ -183,3 +184,27 @@ function mySearch() {
         }
     }
 }
+
+function startTimer(duration, display) {
+    var timer = duration;
+    var countdown = setInterval(function () {
+        var minutes = parseInt(timer / 60, 10);
+        var seconds = parseInt(timer % 60, 10);
+
+        var formattedMinutes = minutes < 10 ? "0" + minutes : minutes;
+        var formattedSeconds = seconds < 10 ? "0" + seconds : seconds;
+
+        display.textContent = formattedMinutes + ":" + formattedSeconds;
+
+        if (--timer < 0) {
+            clearInterval(countdown);
+            display.textContent = "TIME'S UP!";
+            // Perform any action after the timer reaches 0 here
+        }
+    }, 1000);
+}
+
+// // Example usage:
+// var timerDuration = 120; // Timer duration in seconds (change this according to your requirement)
+// var timerDisplay = document.getElementById('timer-display'); // Replace 'timer-display' with your display element ID
+// startTimer(timerDuration, timerDisplay);
