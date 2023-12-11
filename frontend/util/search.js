@@ -119,6 +119,15 @@ function populateModal(product) {
     var descriptionElement = document.createElement('p');
     descriptionElement.textContent = product.description;
 	
+	var bidTimer = document.createElement('p')
+	bidTimer.id = 'bidTimer'
+	bidTimer.textContent = `Time: ${product.Time}`;
+
+	var bidPrice = document.createElement('p')
+	bidPrice.id = 'bidPrice'
+	bidPrice.textContent = `Bid Price: ${product.minprice}`;
+	
+
 	var bidInput = document.createElement('input');
     bidInput.setAttribute('type', 'number');
     bidInput.setAttribute('id', 'bid-amount');
@@ -139,6 +148,8 @@ function populateModal(product) {
     modalDetails.appendChild(descriptionElement);
 	modalDetails.appendChild(bidInput);
     modalDetails.appendChild(bidButton);
+	modalDetails.appendChild(bidTimer);
+	modalDetails.appendChild(bidPrice);
 }
 // When the user clicks on the button, open the modal and populate it with the product details
 var btns = document.getElementsByClassName('details-btn');

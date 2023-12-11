@@ -166,6 +166,7 @@ body {
 .details-btn {
     display: block;
     width: 150px;
+	padding-bottom: 20px;
     height: 30px;
     background-color: #4CAF50; /* Green */
     color: white;
@@ -345,6 +346,16 @@ ul a {
 
 
 	}
+
+#bidTimer	{
+	margin: 160px 10px 0px -240px;
+
+}
+
+#bidPrice	{
+	margin: 140px 10px 0px -120px;
+
+}
 
 	.panel-border	{
 		text-decoration: none; 
