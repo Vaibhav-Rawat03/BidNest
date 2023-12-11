@@ -343,4 +343,13 @@ ul a {
 	cursor: pointer;
 
 
-}
+
+	}
+
+	.panel-border	{
+		text-decoration: none; 
+		background-color: #41445d;
+		color: #ffffff;
+		border: #41445d;
+	
+	}
